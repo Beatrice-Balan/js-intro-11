@@ -1,0 +1,63 @@
+RECAP:
+
+Method vs Functions
+
+Number.isFinite(5); // function tied to "Number"
+
+
+// Create a function that takes 2 number arguments and returns the sum
+
+function findSum(num1, num2) {
+ return num1 + num2;
+}
+
+findSum(10, 5); // 15
+
+Objects: Number, Math, Array, Date etc
+
+
+Static Methods = methods invoked with class or object itself
+
+Instance (Non-Static) Methods invoked with an instance of the class
+
+Number.isFinite(5); // call object (number) invoke method (isfinite)
+Math.max(3,5); // Static
+
+let num1 = 10.234;
+num1.toFixed(1)// 10.2 -> this is an Instance (num1, instance of a number)
+
+
+numebr vs bigint
+primitive vs reference
+
+Number object: will have additional features:
+- properties and methods
+
+properties: information/ state/ instance variables of the object. Holds/ gets data or values about object
+methods: behaviours/ functions of the object. Runs a task/ performs an action
+
+bankAccount:
+properties: name, accountNumebr, balance, securityCode, pinNumber
+methods: createAccount(), deleteAccount(), updateAccount()
+
+
+External Libraries - store stuff and you can get methods from there
+like just get a 'getRandomNumber()'
+
+OR YOU CAN CREATE YOUR OWN !!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

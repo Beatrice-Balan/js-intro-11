@@ -1,0 +1,42 @@
+GIT: software used to track files/ versions and collaborate with others
+
+GitHub: Hosting website for repositories
+Alternative: Bitbucket, Gitlab, Azure Dev0op
+
+Git is distributed VCS (version control system)
+    distributed vs centralized (no longer used)
+
+we worked with 2 flows:
+- local master branch -> made changes -> stage/ commit/ push -> remote master
+
+LOCAL: your machine (laptop/ PC)
+REMOTE: cloud
+
+- local master branch -> copy to local task branch -> made changes -> stage/ commit/ push ->
+    -> to remote task branch -> pull request (= merge request, people just say PR or MR) -> 
+    -> Rewiewers will Approve -> goes to remote master
+
+
+    CLONING REMOTE REPOSITORIES TO LOCAL
+    1. You will be provided with repository url
+    2. Copy the cloning address
+    3. Open Terminal/ cmd and run below code in the correct path
+        git clone <repository url>
+
+MERGE CONFLICTS:
+- when 2 or more collaborators work on the same file
+
+
+Option #1: Resolve in line in GitHub
+
+Option #2: Resolve in VS Code:
+
+    1. Go to VS Code and switch to master (checkout master)
+    Pull the changes into local master from remote master (git pull)
+    Switch back to your local branch which caused CONFLICT
+    Merge local master into your local branch (git merge master -> while youre on your branch)
+
+You should see same conflicts in VS code
+resolve and commit your changes one more time
+
+- go back to VS code and see that everything is resolved

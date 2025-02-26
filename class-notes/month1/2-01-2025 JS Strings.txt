@@ -1,0 +1,180 @@
+String:
+- a string is text data (sequence of characters) stored using single or double quotes
+
+String templates - Backticks (implemented with ES6): 
+
+String interpolatrion: ${}
+
+string concatination: " " + " " -> not the easiest to maintain
+
+Static vs Instance Methods
+
+        *How do i invoke the method?*
+
+- by building object = static
+Math.max() // static
+Number.parseInt() // static
+
+- by creating a value and with value = instance
+
+let num 1 = 25.99;
+num.toFixed(1); // non-static, instance
+
+// static
+class Account {
+    static method1() {
+        console.log('I am a static method')
+    }
+    method2() {
+        console.log('I am an instance method')
+    }
+}
+
+Account.method1(); // 'I am a static method'
+
+//
+
+let myAccount = new Account();
+myAccount.method2(); // 'I am an instance method'
+
+
+// Use case for "at" 
+
+let string = 'dfegyhhdwiuhuyverhjijirejheuirhuerhberbrey'
+
+first char: string[0]
+second char: string[1]
+third char: string[2]
+
+LAST Character: string.at(-1)
+same as: string[string.length - 1]
+
+
+indexOf( method)
+
+- if the result of this method is 0 or positive index = the substring exists (it's found in the original string)
+- if result is -1 -> the substring was not found/ does not exist
+
+
+
+
+
+// NOTE: WE WILL ALWAYS use slice() method to extract substrings
+
+    slice():
+If you have 2 positive index numbers:
+    if start index >= end index, then your result is always '' (empty)
+
+'Hello'.slice(3, 2); // ''
+'Hello'.slice(3, 3); //''
+
+     if start index < end index, then result will be a substring INCLUDING START index, EXCLUDING END index
+
+'Hello'.slice(1, 3); // 'el'
+
+     if end index is not provided, the result will be start index all the way to the end
+
+'Hello'.slice(2); // 'ello'
+
+
+slice() method also works with negative indexes (indices)
+
+In this case, you'll go backword
+'Hello'.slice(-1); // 'o' -> last character
+'Hello'.slice(-2); // 'lo' - last 2 characters
+'Hello'.slice(-3); // 'llo' - last 3 characters
+
+'Chicago'. slice(-5, -2); // 'ica'
+    -> you start with the first index of -5, which is i. You need to stop before -2 (index -2 is g so you stop BEFORE g)
+
+'Chicago'. slice(-1, -4); // '' empty
+    -> your start index should ALWAYS be bigegr than 2nd
+
+SUBSTRING: 
+
+'Miami'.substring(-2, -4); // '' empty -> all negative index are considered 0
+'Miami'.substring(2, 0); //'Mi'
+
+
+
+RECAP:
+
+Changing cases:
+toUpperCase();
+toLowerCase();
+
+Extract characters:
+[] -> property access
+at();
+charAt();
+charCodeAt();
+
+First vs Last characters in a string
+before:
+str[0]; // first character -> still preferred way
+str[str.length -1]; // last character -? too long and complicated, use at()
+
+AFTER:
+
+str[0] // first character
+str.at(-1); // last character 
+
+'Hi'[3]; // undefined
+'Hi'.charAt(3); // ''
+'Hi'.at(3); // undefined
+
+
+SEARCHING:
+startsWith();
+endsWith();
+includes();
+-> these 3 return true/ false
+
+search();
+indexOf();
+lastIndexOf();
+-> thse 3 return the index number
+
+If your metthod is supposed to return a number, and it can't find what it's looking for it will return -1, always
+
+
+TRIMMING:
+trim();
+trimStart();
+trimEnd();
+
+EXTRACTING SUBSTRINGS:
+
+slice(); -> most commonly used
+    - works with negative indexes
+    - if start index is > end index:
+        str.slice(5, 3); // ''
+
+substring();
+    - it converts all the engative indexes to 0
+    - start index is > end index:
+        str.substring(5,3); // it will try to do it and convert it into (3,5)
+
+
+JS DATE FORMAT: 02/14/2025
+
+If in your app, you receive a diff format, like: 2025-02-14
+    -> you can split it by dash ('-')
+
+const appDate ='2025-02-14'.split('-');
+let expectedDate = ${appDate[1]}/${appDate[2]}/$${appDate[0]};
+
+
+
+REPEAT METHOD
+
+let str = 'ABC';
+let res = str.repeat(3); // ABCABCABC
+
+
+
+Use slice() for extracting MULTIPLE characters (substrings) from a string.
+
+use property access [index number here] to get a single character
+at() is reccomended to be used when getting last characters using negative numebrs
+

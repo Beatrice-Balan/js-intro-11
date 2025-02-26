@@ -1,0 +1,31 @@
+
+
+
+
+for (initialization; condition; update) {
+    // Code to execute repeatedly
+}
+
+for (let i = 0; i < 3; i++) {
+    console.log('Hello'); // Logs 0, 1, 2
+}
+
+Initialization:
+
+This is where you define and set up a variable for the loop.
+It runs only once at the start of the loop.
+Example: let i = 0; (starts the counter at 0).
+Condition:
+
+A logical statement that is checked before each loop iteration.
+If true, the loop runs. If false, the loop stops.
+Example: i < 5; (runs while i is less than 5).
+Update:
+
+A statement to update the variable after each iteration.
+Usually increments (i++) or decrements (i--) the counter.
+Example: i++ (adds 1 to i after each loop).
+Code Block:
+
+The code inside the curly braces {} runs for each loop iteration.
+

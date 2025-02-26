@@ -1,0 +1,25 @@
+SORTING ARRAYS:
+
+string: they will be sorted lexicographically (alphabetically)
+
+Numbers: treats numbers like a string, ASCII based. smallest to largest
+        example: 1, 15, 2, 20, 3, 32, 40
+
+
+ASCENDING order:
+
+numbers.sort((a, b) => a - b) // sorts numbers well in ascending order
+
+Explanation:
+numbers.sort(): The .sort() method sorts the elements of an array.
+(a, b) => a - b: This is the comparison function that determines the sorting order.
+If a - b is negative, a comes before b. (1 - 40, result is negative, so 1 should be before 40)
+If a - b is positive, b comes before a. (40 - 1, result is positive, so 40 is after 1)
+If a - b is 0, their order remains unchanged.
+
+DESCENDING order:
+
+numbers.sort((a, b) => b - a) // sorts numbers well in descending order
+
+Primitives are immutable
+Reference types: mutable

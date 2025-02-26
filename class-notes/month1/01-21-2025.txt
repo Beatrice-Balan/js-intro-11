@@ -1,0 +1,3 @@
+//duplicate line -> Alt + Shift + down arrow
+//Mac "option" = "Alt" in windows
+//cmd = Ctrl 

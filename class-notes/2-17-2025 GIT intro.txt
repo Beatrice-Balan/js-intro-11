@@ -1,0 +1,47 @@
+Pushing code: publishing/ sharing your code with others
+Pulling code: retrieving/ getting others’ code 
+
+***IMPORTANT NOTE***
+When creating new Repositories in GitHub and linking them with your local projects/ folders,
+DO NOT USE HTTPS.
+
+We will use SSH for authentication!
+
+CREATING SSH (Secure Socket Shell)
+- used for atuthentication
+
+1. ssh-keygen
+
+
+HOW TO CREATE AND PUSH A NEW PROJECT FROM LOCAL TO REMOTE
+1. Create project on local
+2. Create a remote repo 
+3. Initialize your local project with GIT
+    git init 
+
+4. Link your local project with remote repo 
+    git remote add origin <remote-url>
+
+5. Stage the changes
+    git add <file-name>
+    git add .
+
+6. Commit the changes with a meaningful message
+    git commit -m "message"
+
+7. Publish your changes / push
+    git push
+
+
+First time for the branch: use one of the below -
+        git push --set-upstream origin master
+        git push -u origin master
+
+
+
+
+
+GIT PUSH - existing Repositorrepo
+git push -u origin master
+
+

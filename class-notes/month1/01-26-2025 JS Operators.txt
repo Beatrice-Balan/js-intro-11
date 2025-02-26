@@ -1,0 +1,19 @@
+OPERATORS
+
+1. Assignment 
+= equal sign used to assign, or reassign
+
+let name = 'John';
+let age;
+age = 45
+
+Order Of Operations:
+1. Exponentiation
+
+
+
+INCREMENT & DECREMENT
+- used to increase or decrease the value of a variable by 1. 
+
+== is used to only compare values. Loose comparison
+=== used to compare BOTH values AND data types of the variables. Strict comparison

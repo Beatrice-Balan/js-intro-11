@@ -1,0 +1,71 @@
+RECAP:
+
+Function: block of code used to run a specific task which can be executed repeatedly.
+Functions can take inputs (called parameters, we call them arguments) and return an output.
+It can be return( it returns a value back when invoked) or void (does not return anything, just runs a task)
+
+Parameters and arguments are often used interchangeably, but technically:
+Parameters are the placeholders in the function definition (like name in greet(name)).
+Arguments are the actual values you pass to the function when calling it (like "John" in greet("John")).
+
+A function with a return statement sends a value back when called, whereas a void function doesn’t return anything; 
+it simply runs a task (like logging something to the console).
+
+EXAMPLE void function:
+function launchChrome() {
+    // body
+}
+
+function loginToApp (username, password) {
+    // body
+}
+
+function goToTechGlobalTrainingApp() {
+
+}
+
+Void function are simply invoked:
+launchChrome();
+function goToTechGlobalTrainingApp()
+loginToApp();
+
+EXAMPLE return function:
+
+function getTitle() {
+    return "Wikipedia";
+}
+
+let actualTitle = getTitle(); //
+let expectedTitle = 'Welcome to TechGlobal School Training';
+
+if(actualTitle === expectedTitle) {
+    // TEST PASSED
+} 
+else{
+    // TEST FAILED
+}
+
+
+1. FUNCTION declaration
+
+function functionName(parameter1, parameter2 etc) {
+    // body
+}
+
+
+ARROW FUNCTIONS:
+
+example simplified: 
+
+const sum 3 = (num1, num2) => num1 + num2
+const initials = (fname, lname) => `${fname[0]}.${lname[0]}.`
+const isEven = number => number % 2 === 0;
+
+HOISTING:
+1. Function Declaration
+2. Function Expression
+3. Arrow Function
+
+
+
+

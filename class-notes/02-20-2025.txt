@@ -1,0 +1,31 @@
+Array: is a built in object in JS to store multiple data- has properties and methods
+
+Array() -> array constructor
+
+Constructor: special method used to instantiate its blueprint/ prototype
+
+Array.isArray() = static method because it belongs to the whole blueprint
+
+
+const newArr = new Array()
+arr.slice() - invoke this method bvecause you invoke with the Instance(above) of the array
+
+
+
+
+
+
+Example - instance vs static -
+
+class Mercedes {
+    brand = "Mercedes"; // static info because it's static to all Mercedes, it's the brand
+    color = "Black";  // instance property
+}
+
+const car1 = new Mercedes();
+const car2 = new Mercedes();
+car1.color = "Black"
+car2.color = "White"
+
+- these are instance properties
+

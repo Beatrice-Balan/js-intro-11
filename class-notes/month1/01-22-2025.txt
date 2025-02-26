@@ -1,0 +1,14 @@
+reserved key = let const and var
+variable Name = name
+
+Concatenation
+'5'+'3' = 53 
+it just puts them together, next to eachother, like strings
+like John + Doe = John Doe. they're attached
+
+NAMING RULES (unwritten):
+- use letters, numbers, $ and _
+- first character can't be a number/ digit. Can be use anywhere else
+$ and _ can be in bthe beginning, and anywhere else
+spaces are not allowed in variable names
+PREFFERED WAY: totalNumberOfStudents

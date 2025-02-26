@@ -1,0 +1,83 @@
+1. Can i rename my branch?
+- usually branch names have a unique ID that needs to be used
+- how to name the branch: TASKID-description, or TASKID-description-jdoe
+
+command to rename: git branch -m <old branch name> <new branch name>
+
+2. Can I switch to anotehr branch without commiting my changes?
+Yes, on your local but it is reccomended to 
+
+3. Can I merge my local branches?
+Yes, first switch to your branch that you want to merge all the changes
+Then use below command to merge the other branch into current branch
+    git merge <other-branch-name>
+
+4. Can i switch to my team member's branch?
+Yes. Use:
+    git fetch -> updates your local with all the remote branches 
+
+5. Can i pull my teeam member's changes without PR into master?
+    git fetch
+    git checkout origin/<branch-name>
+
+6. What happens if I forget the commit message?
+VI - Visual Editor to add your commit message
+Insert mode: press i key
+    you can type your commit message while you're insert mode, type your message and exit
+Exit inser mode: press esc key
+Command mode: press :
+    w -> save
+    q -> quit
+    :wq -> save and quit
+
+
+7. Can I change the commit message before I push?
+    git commit --amend
+
+8. What is git stash and git stash apply?
+    It's a way to resolve conflicts that are obvious
+
+    1. I made some changes on local branch
+    2. then someone updated remote master and I know that if i push my code it will create conflict
+    3. Stash my changes: git stash
+    4. Switch to master on local
+    5. Pull the changes from remote master: git pull
+    6. Switch back your local branch (you stashed changes)
+    7. Merge local master changes into your local branch
+    8. Retreive stashed changes: git stash apply
+    9. This is going to create conflicts
+    10. Resolve conflict, publish branch (add, commit push changes)
+
+9. What is git fetch, git merge and git pull? Their differences?
+    There are 2 ways to update your local branches with remote branches
+    1. case master branch
+        switch to master on your local and run 'git pull'
+    2. Switch to master on your local and run 'git fetch' to retreive all the changes without merging
+        then run 'git merge origin.master' to update your local master with remote changes
+
+10. What else should I know about GIT commands?
+LEARN:
+     difference between git merge and git rebase
+
+
+
+
+
+git log = shows all the history of commits and branches( to exit press: q)
+
+to enter INSERT mode press: i (add message, and hit esc to exit insert mode, then press :wq which is save and quit)
+
+
+
+In real life work, how often do you do the following?
+sprint: period of time (2 weeks)
+    3-5 branches
+    7-10 commits
+    3-5 PRs
+    3-5 Pull changes
+
+CONFLICT happens when 2 or more people change the same file and tehy push and merge their code to master
+    - when you did not pull the latest remote/ master or remote/ main changes
+
+IF it's a small conflict -> resolve inline (GitHub etc)
+ If bigger conflict, pull the changes and resolve in your local

@@ -1,0 +1,120 @@
+
+CLI -> Command Line Interface
+
+GUI -> Graphical User Interface (what we're using now in the beginning)
+
+Windows - Command Prompt
+MACOS - Terminal
+
+Home Directory:
+MAC: Users/{username}
+Windows: C:\Users\{username}
+
+ROOT Directory or Root path:
+Mac: /users
+Windows: C:\
+
+
+Path: String representation of where to find a specific folder/ file in your local
+Path of the first-program.js on my local:
+
+1. pwd (mac) vs cd (windows)
+print working directory: where you are or which path you're on
+
+2. ls (mac) vs dir (windows)
+Lists the existing folders/ files in the current path/ directory
+
+List all items including hidden:
+ls -a
+dir -ah
+
+MAC ONLY: 
+Navigate to Home Directory GUI: cmd + shift + H
+Show/hide hidden folders/ files: cmd + shift + .
+
+WINDOWS Users:
+Navigate to Home Directory GUI: C:\Users\{username}
+Show/hide folders/files: Select View / Select show
+
+
+3. Clear working CLI (terminal or CMD)
+to take cmd page to teh top type: cls
+
+4. cd directoryName (for both Mac and Windows)
+It changes the directory
+
+5. cd / (mac & windows)
+It changes the directory to root directory
+
+6. 
+cd ~ for MAC
+
+windows:
+cd %HOMEPATH%
+or cd %userprofile%
+
+7. cd.. (mac & windows)
+It changes directory to parent directory
+
+
+8. mkdir directoryName (mac and windows)
+makes a new directory (new folder) with a given name: mkdir MyGarage
+Note: if your directory has multiple names use " " 
+
+9. rmdir directoryname (mac and windows)
+alternative for windows: rd
+
+Removes specified directory: rmdir "My favorite movies"
+ - this command will delete only empty directories
+
+10. rm -rf directoryName (macwindows:
+rmdir /s (windows with confirmation Y/N))
+rmdir /s /q (windows WITHOUT confirmation)
+
+
+11. To create a new empty FILE:
+
+WINDOWS: 
+echo. > fileName.extension
+or
+echo "" > fileName.ext
+
+MAC:
+touch  fileName.ext 
+
+
+12. To READ a file
+
+WINDOWS:
+type fileName.ext
+
+MAC:
+cat fileName.ext
+
+
+13. to DELETE a file:
+del fileName.ext
+rm fileName.ext
+
+
+14. Create a file AND add some info in it right away
+echo content > fileName (BOTH windows and mac)
+
+
+Interview questions
+Are you familiar with Linux commands?
+Can you tell me some Linux commands you use daily
+
+
+
+
+
+
+
+
+WE WILL LEARN:
+
+GIT
+NPM
+CYPRESS
+PLAYWRIGHT

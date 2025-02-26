@@ -1,0 +1,87 @@
++ operator is used for:
+concatenation (strings next to eachother)
+addition
+
+string + number = string
+'5' + 5 = 55
+
+NaN: let price = '2149.99' / 2; // output: NaN
+
+to convert into a number: 
+let parseFloat('2149.99') / 2; // output will be ok, a number
+let number('2149.99') / 2; // output will be ok, a number
+
+
+BigInt
+
+THRUTY and FALSY
+
+
+INTERVIEW QUESTION
+- difference between undefined and null
+
+Undefined = for variables that are declared but not assigned with a value YET - there will be a value at some point
+
+Null - is used to intentionally point out the ABSENCE OF DATA -> on purpose
+
+
+SYMBOLS - ES6 feature
+
+
+Statically typed languages - compiled languages (TS, Java, C#)
+
+
+ARRAY INDEX:
+
+first item -> [0]
+second item -> [1]
+
+last -> arrayName[arrayName.length -1]
+second from the last -> arrayName[arrayName.length -2]
+
+How to create an ARRAY?
+const arr = [1, 2, 3];
+const arr = new Array(1, 2, 3);
+
+const arr = ['A', 'B', 'C'];
+
+Arrays can be mixed with any data type, string, number, undefined, boolien (like 3 === 0), object. Anything, but not the norm
+
+hackerranck -> practice
+
+leetcode -> practice, preferred
+
+
+RECAP
+
+1. Primitives
+ string: used to store text data (single or double quotes)
+ number: used to store decimal and whole numbers, up to 64 bits
+ boolean: used to store true/ false expressions (to evaluate true/ false statements)
+ undefined: default data type for variables declared but not assigned with a value
+ null: used to point the intentional absence of value
+ BigInt: used to store decimal and whole numbers, up to AND ABOVE 64 bits
+ symbol: 
+
+ 2. Reference Types (Objects)
+- they're calld reference types. Stack (stores variables) & Heap (stores arrays, objects etc). 
+
+  array: used to store multiple similar data (usually the data is similar but it can vary, string number, boolien etc)
+
+  object: used to store key value pairs (properties) for ONE entity/ variable
+const obj1 = {
+    fname: 'John',
+    lname: 'Doe',
+    age: 25
+};
+const creditCardInfo = {
+    fullName: 'John Doe'
+    number: '123-123-123-1234', // string
+    expirationDate: '04/27', // string
+    securityCode: 123
+};
+
+creditCardInfo.number // pull up the card number '123-123-123-1234'
+creditCardInfo.expirationDate = '04/33';  // used to update
+creditcardInfo.bankName = 'Chase'; // used to ad new variables, data or information
+

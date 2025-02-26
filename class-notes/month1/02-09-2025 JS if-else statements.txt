@@ -1,0 +1,105 @@
+RECAP:
+
+If-else: control-flow statements or conditional statements
+- by using them we control the flow of the program, different blocks of code will be executed
+
+if...else is a control structure used to make decisions in your program. 
+It evaluates a condition (a statement that resolves to true or false) and executes code blocks based on the result.
+if block: Runs only if the condition is true.
+else block: Executes if the condition in if is false.
+
+
+if(condition) {
+    // block runs if condition is TRUE
+}
+else {
+    // block runs if condition is FALSE
+}
+
+let winner;
+if(a > b) {
+    winner = a;
+} 
+else {
+    winner = b;
+}
+
+if(a > b) winner = a;
+else winner = b;
+
+let loser = a > b ? b : a
+
+gameResult;
+
+if(x > y) {
+    gameResult = 'X won';
+}
+else if(y > x) {
+    gameResult = 'Y won';
+}
+else {
+    gameResult = "'It's a Tie"
+}
+
+let gameResult = x > y ? 'X won' : y > x ? 'Y won' : 'Tie';
+
+// NESTED IF...ELSE
+A nested if-else is when an if...else statement is placed inside another if or else block. 
+It’s used to handle multiple conditions. 
+It allows your program to branch into different paths based on logic!
+
+if (condition1) {
+  // Code for condition1
+  if (condition2) {
+    // Code for condition2
+  } else {
+    // Code if condition2 is false
+  }
+} else {
+  // Code if condition1 is false
+}
+
+FALSY values within IF will always evaluate as false: false, undefined, null, 0, empty string, NaN
+
+let referrerFullName = student5.getReferrer(); // null, '', undefined
+
+if(referrerFullName) {
+    console.log('This student has a referrer');
+}
+else {
+    console.log('This student DOES NOT have a referral);
+}
+
+DATE
+
+const date = new Date();
+
+console.log(date.getFullYear()); // 2025
+console.log(date.getMonth()) // 0 is Jan, 1 is Feb, 2 is March etc
+console.log(date.getDay()); // 0 (0 is Sunday, 1 is Monday, 2 is Tues..)
+console.log(date.getHours()); //  current, live hour (24h)
+console.log(date.getMinutes()); // current, live minutes
+console.log(date.getSeconds()); // current, live seconds
+
+console.log(date.getTime());
+/*
+is a method in JavaScript that returns the timestamp of a Date object in milliseconds since January 1, 1970, 00:00:00 UTC 
+(known as the Unix epoch).
+
+The year 1970 was chosen as the starting point for the Unix timestamp because it was a practical standard at the time 
+Unix systems were developed (in the 1960s and 70s).
+*/
+
+console.log(date.getDate()) // current date
+console.log(date.getTimezoneOffset())
+
+FUNCTIONS WITHIN IF ELSE
+
+function oddEven() {
+    if(number % 2 === 0) {
+        return 'EVEN';
+    } else {
+        return 'ODD';
+    }
+}
+

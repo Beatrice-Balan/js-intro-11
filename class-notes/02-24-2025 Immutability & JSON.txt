@@ -1,0 +1,22 @@
+Js is a single-threaded language ->
+
+JS executes teh code line by line & can execute one task at a time\
+
+Multi threaded languages: C++, Java
+
+
+JS is asynchronous
+
+Mutability:
+    Mutable: changing (references)
+    Immutable: not changing (primitives)
+
+Shallow copy: when you use the spread operator to create a copy of a JS object (reference type)
+        - does NOT work with NESTED objects
+
+Deep copy: use JSON parse and stringfy methods to create a copy of a JS objects
+        - this will create an independent copy which will not affect the original object
+
+
+
+JSON does not support - undefined, functions

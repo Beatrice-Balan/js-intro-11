@@ -1,0 +1,139 @@
+JS Operators:
+
+1. Assignmet operator: = sign
+2. Shorthand Assignment operator: +=, -=, *=, /=, %=, **=
+
+let num = 10;
+num = %= 4;
+console.log(num); // 2
+
+3. Artithmetic Operators: +, -, /, **, ++, ++
+int i = 10;
+i++; // i = 10, increase later
+
+int j = 10;
+++j; // 11, increase right now
+
+4. Comparison Operators: ==, ===, !=, !==, <, >, <=, >=
+** All comparison operators will evaluate to boolean **
+
+== loose comparison, checks ONLY if values are equal
+vs 
+=== strict equality, checks BOTH values and data type
+
+'3' === 5 -> False & False
+5 == 'five' -> False
+5 == '5' -> True
+5 === '5' -> False
+
+5. Logical Operators
+
+&& -> logical And
+|| -> logical Or
+!  -> Not
+
+3 > 2 && 5 != 5 -> True && False -> False
+
+_____ && _____
+true  && true   -> true
+true  && false  -> false
+false && true   -> false
+false && false  -> false
+
+_____ || _____
+
+true  || true   -> true
+true  || false  -> true
+false || true   -> true
+false || false  -> false
+
+! NOT Operators
+!false -> true
+!true  -> false
+
+!(5 === '5') -> true
+
+!((3>= 3 || false) && !true) -> !((true) && false) -> !(false) -> true
+
+
+REFERENCE TYPES
+- Array, Object, Function
+- Math, Date, Number, BigInt, String........ thousands
+- Newly added: Set, map
+
+OBJECT: all built-in objects in programming languages have their own properties and functions.
+
+properties: information about the object -> what it has
+functions (methods): abilities of the object -> what it does
+
+Math.PI; // will return 3.14(...)
+Math.max(1, 2) // 2 
+-> this is a FUNCTION, it does something, finds the max number between the listed ones
+
+Number.MAX_SAFE_INTEGER or Number.MAX_SAFE_INTEGER; // 
+properties - usually don't have paranthesis
+functions - usually have paranthesis
+
+log(); // this is a function
+
+Math.max('Hi', 'By'); // WRONG -> THIS IS FOR NUMBERS
+
+JS numbers are always stored as double precision (up to 15-16 digits). 
+= Numbers up to 16 digits are safely stored, but if more than 15-16 digits, use Bigint to make sure no errors
+even for stuf like 1.0000000000000000001 -> use Bigint
+
+function = method
+
+You can call them functions because a method is technically a function tied to an object. So saying "function" isn't wrong—it’s just less specific.
+
+Here’s the distinction:
+
+If you say method, you're being precise because toFixed is part of the Number object.
+If you say function, you’re not wrong—it’s just a broader term since all methods are functions, but not all functions are methods.
+
+
+integers: 10, 5, 100
+floats: 10.5, 20.21
+
+
+isNaN() -> is a global function
+Number.isNaN() -> older way to do it, and then they came up with the shorter way (above)
+
+
+
+LET NUM = 5;
+
+// non-static (require me to assign a variable (num1, num2 etc), or object) = INSTANCE METHOD
+num1.toString()
+num2.toFixed()
+num3.toPrecision()
+
+
+// static = CLASS/ FUNCTION METHOD, No need to declare a variable first. 
+You can directly call the method on the class itself.
+Number.isFinite()
+Number.isSafeInteger()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

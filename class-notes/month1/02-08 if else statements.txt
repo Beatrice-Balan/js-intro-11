@@ -1,0 +1,81 @@
+if - else statements: conditional statements, control flow statements
+
+SYNTAX:
+
+let isSchool;
+
+if(letSchool) {
+    console.log('GO TO SCHOOL) // case TRUE
+}
+else {
+console.log('You can sleep extra') // case FALSE
+}
+
+- condition might be a single variable or an expression that evaluates to true or false
+falsy values: false, NaN, null, o, '' -> falsy values
+
+
+
+
+if (grade <0 || grade > 100) {
+    console.log('Error: Please enter a grade between 0 and 100')
+}
+else if (grade >= 90) {
+    console.log('Grade: A')
+} else if (grade >= 80) {
+    console.log('Grade: B')
+} else if (grade >= 70) {
+    console.log('Grade: C')
+} else if (grade >= 60) {
+    console.log('Grade: D')
+} else {
+    console.log('Grade: F')
+};
+
+NESTED IF else
+
+if examResult >= 90 {
+    if examResult >= 95 {
+    // A+
+    }
+    else {
+        if()
+    }
+}
+
+let password ='';
+
+if (password.length < 8) {
+    console.log('Your password must be more than 8 characters)
+} else if(password.length > 16) {
+    console.log('Yoiur password is long. Provide up to 16 characters)
+} else if(!CharacterHelper.hasUpperCase(password)) {
+    console.log{'Your pass must have an uppercase letter'}
+} else if(!CharacterHelper.hasDigit(password)) {
+    console.log('Your password must have a DIGIT')
+} else if(!CharacterHelper.hasSpecial(password)) {
+    console.log('Your password must have a SPECIAL CHARACTER')
+} else {
+    console.log('Your password is succesfully created!')
+}
+
+let emailname = 'tgschool05';
+
+if(emailName.length < 6 || emailName > 30) {
+    console.log('Sorry, your username must be between 6 and 30 characters long.')
+}
+else if(Email.Checker.hasEmail(emailName)) {
+    console.log('That username is taken. Try another.)
+}
+else {
+    // Allow user to continue creating account
+}
+
+NOTE: IF statement can be used without any else or else if.
+However, else and else if cannot be used without IF
+
+
+SHORT IF ELSE omitting curly braces - ALLOWED ONLY IF you have ONLY ONE block statement
+
+if(mood) console.log('ALL GOOD');
+else console.log('HELL');
