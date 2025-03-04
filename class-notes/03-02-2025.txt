@@ -1,0 +1,44 @@
+Loops:
+
+1. for loop (traditional loop, first loop that was introduced): 
+    - if you need indexes of something, helpful
+
+2. while loop
+3. do while loop
+    - we use these if we don't know how many times our loop will iterate
+
+4. for...of loop (otehr languages call it "for each loop") ES6
+    - mostly used with arrays, strings, objects
+
+5. for...in loop
+    - uused with objects only
+
+
+for...of loop: used to iteratethrough iterable objects (arrays mostly, but objects too)
+
+- Maps, Sets - introduced in JS in 2015, not really used, because Arrays are powerful
+
+
+WHEN TO USE for loop VS  for...of loop TO ITERATE ARRAYS/ OBJECTS
+
+- for.. of loop, starts from index 0, because it has no control over indexes
+- can't modify the start point, always from the beginning till the end
+-
+
+Will learn otehr methods that loop through array elements
+
+forEach(), map(), filter(), reduce(), some(), every()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

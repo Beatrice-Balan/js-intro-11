@@ -1,0 +1,80 @@
+Loops are used to run a block of code repeatedly (iterations), until a specific condition is met
+
+Iteration = each time the loop runs
+
+In JS and typescript there are 5 types of loops:
+1. for loop
+2. for...of loop
+3. for...in loop  // specific to JS and TypeScript
+4. while loop
+5. 
+
+1. for loop = traditional loop = "i loop"
+Syntax:
+for (initialization; terminationCondition; update) {
+    // block to execute
+}
+
+for(let i = 0; i < 5; i++) {
+    // block to execute
+}
+
+// Avoid, loops that never run:
+for(let i =1; i < 0; i++) { // i < 0 will be false for the first iteration and this loop will not run
+    console.log('Stuarday)
+}
+
+// Infinite loops bad
+for(let i =10; i > 1; i++) { // 
+    console.log('Stuarday)
+}
+
+// an empty loop is also an infinite loop
+for( ; ; ) {
+    console.log('Saturday)
+}
+
+
+WHEN TO USE While Loop over For loop:
+
+- when you don't know how many iterations it will take.
+ask: do i know how many times this loop needs to run?
+    yes: for loop
+    no: while loop
+
+
+
+2. While loop
+- works with a condition and the loop will run while the codition is true
+- the loop will break/ terminate whenever condition is false
+NOTE: first checks the condition and then decides whether to run the block or not
+
+Syntax:
+
+while(condition {
+    // run this block
+})
+
+3. Do-While loop
+- works with a condition and the loop will run while the codition is true
+- the loop will break/ terminate whenever condition is false
+NOTE: the block of code in "do" block will execute First and after that, the condition will be checked
+
+do{
+    // run this block
+} while(condition);
+
+
+
+Neasted loops are also a thing, for example:
+
+const names = ['Mariia', 'Jane', 'Joe']
+
+// task, print each name, and then each letter of each name, example:
+John
+J 
+o 
+h 
+n 
+
+-> loop to get each name, and then loop for each character

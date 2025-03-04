@@ -4,7 +4,7 @@ const numbers = [1, 2, 3, 10, -7];
 
 console.log(numbers); // [ 1, 2, 3, 10, -7 ]
 console.log(...numbers); // 1 2 3 10 -7
-// it's lie you're individually console logging them, so it takes them out and makes them individual numbers
+// it's like you're individually console logging them, so it takes them out and makes them individual numbers
 
 const winter = ['Dec', 'Jan', 'Feb']
 const spring = ['Mar', 'Apr', 'May']

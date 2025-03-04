@@ -1,0 +1,24 @@
+Array Methods:
+
+Higher Order Method/ Function: method/ function that takes anoteher
+callback function as an argument
+
+Callback: function or method passed as an argument to anotehr function or method
+
+Functional Programming
+
+forEach(callback)
+
+map(callback)
+    - returns a same size array based on requirements
+
+filter(callback)
+    - returns an array filtered with elements matching a condition
+    - if nothing matches, then empty array, or however many elements match
+
+reduce(callback)
+some(callback)
+every(callback)
+find(callback)
+findIndex(callback)
+
