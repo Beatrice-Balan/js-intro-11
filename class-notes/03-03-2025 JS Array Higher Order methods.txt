@@ -7,16 +7,58 @@ Callback: function or method passed as an argument to anotehr function or method
 
 Functional Programming
 
-forEach(callback)
 
-map(callback)
-    - returns a same size array based on requirements
+1. forEach(callback) - it is an Instance method used on arrays to execute a provided function once for each array element. 
+    - It doesn’t return anything, it's a void method, it just performs the operation.
 
-filter(callback)
-    - returns an array filtered with elements matching a condition
+- CanNOT be stored in a variable, it does not return anything
+
+[3, 5, 10].forEach((x) => {
+    console.log(x)
+})
+Output: 3, 5, 10
+
+
+2. map(callback)
+    - returns a new array, same size array based on requirements
+    - it runs teh callback for each element, and collects the new elements in a new array
+
+const newMappedArr = ['apple', 'ORANGE', 'Kiwi'].map((x) => {
+    returnx[0].toUpperCase() + x.slice(1).toLowerCase()
+})
+console.log(newMappedArr); // ['Apple', 'Orange', 'Kiwi']
+
+[1, 2, 3].map((x) = > {
+    return x % 2 === 0 ? 'even' : 'odd'
+});
+
+
+
+3. filter(callback)
+    - runs the callback for each element and collects filtered elements in a new arary
+    - returns a new array filtered with elements matching a condition
     - if nothing matches, then empty array, or however many elements match
+    - inner callback should return boolean
 
-reduce(callback)
+[5, 2, 'Hello', null, 12.5].filter((x) => {
+        return typeof x === 'number';
+})
+
+
+
+4. reduce(callback)
+    - it runs the callback on each array element and collects an accumulted value
+    - returns a single value
+    - if initial value not provided, then by default the initial value will be considered 
+        the first element of the array
+
+
+
+
+
+
+
+
 some(callback)
 every(callback)
 find(callback)

@@ -1,18 +1,15 @@
 
 console.log('\n--------TASK01--------\n')
-/* Task 01
-Write a program that outputs all the numbers that are divisible by 7 starting from 1 to 100 (both inclusive).
-*/
+// Write a program that outputs all the numbers that are divisible by 7 starting from 1 to 100 (both inclusive).
+
 
 for(let i = 7; i <= 100; i += 7) {
     console.log(i)
 }
 
-console.log('\n--------TASK02--------\n')
 
-/* Task 02
-Write a program that outputs all the numbers that are divisible by both 2 and 3 starting from 1 to 50 (both inclusive).
-*/
+console.log('\n--------TASK02--------\n')
+// Write a program that outputs all the numbers that are divisible by both 2 and 3 starting from 1 to 50 (both inclusive).
 
 for(let i = 1; i <= 50; i++) {
     if(i % 2 === 0 && i % 3 === 0) console.log(i)
@@ -23,34 +20,26 @@ for(let i = 6; i<=50; i += 6) {
     console.log(i)
 }
 
+
 console.log('\n--------TASK03--------\n')
+// Write a program that outputs all the numbers that are divisible by 5 starting from 100 to 50 (both inclusive).
 
-/* Task 03
-Write a program that outputs all the numbers that are divisible by 5 starting from 100 to 50 (both inclusive).
-*/
 
-for(let i = 100; i >= 50; i-= 5) {
+for(let i = 100; i >= 50; i -= 5) {
     console.log(i)
 }
 
 
 console.log('\n--------TASK04--------\n')
-
-/* Task 04
-Write a program that outputs the squares of all numbers starting from 0 to 7 (both inclusive).
-*/
+// Write a program that outputs the squares of all numbers starting from 0 to 7 (both inclusive).
 
 for(let i = 0; i <= 7; i++) {
-    console.log(`The square of ${i} is = ${Math.pow(i, 2)}`)
+    console.log(`The square of ${i} is = ${i ** 2}`)
 }
 
 
 console.log('\n--------TASK05--------\n')
-
-/* Task 05
-Write a program that finds sum of the numbers starting from 1 to 10 (both inclusive).
-Calculation => 1+2+3+4+5+6+7+8+9+10
-*/
+// Write a program that finds sum of the numbers starting from 1 to 10 (both inclusive). Calculation => 1+2+3+4+5+6+7+8+9+10
 
 let sum = 0;
 for(let i = 1; i <= 10; i++) {
@@ -61,12 +50,8 @@ console.log(sum)
 
 
 console.log('\n--------TASK06--------\n')
-/* Task 06
-Write a program generates a random number between 1 and 10 (both inclusive).
-And find the factorial of the number.
-
-Mathematically, the factorial of a non-negative integer n is defined as:
-n! = n × (n-1) × (n-2) × ... × 2 × 1
+/*  Write a program generates a random number between 1 and 10 (both inclusive).And find the factorial of the number.
+Mathematically, the factorial of a non-negative integer n is defined as: n! = n × (n-1) × (n-2) × ... × 2 × 1
 */
 
 let ran = Math.floor(Math.random() * 10) + 1
@@ -81,16 +66,9 @@ console.log(`${ran}! = ${factorial}`)
 
 
 console.log('\n--------TASK07--------\n')
-/* Task 07
-Write a program generates a random number between 1 and 100 (both inclusive).
-Keep generating a new number till you get a number that is divisible by 5.
-
+/* Write a program generates a random number between 1 and 100 (both inclusive). Keep generating a new number till you get a number that is divisible by 5.
 The program should also count how many attempts it takes to generate such a number.
-
 Eventually, print the random number divisible by 5 with the number of attempts as below.
-
-Expected Output:The random number is {randomNumber} and it took {attempts} attempt/s to generate it.
-
 */
 
 let attempts = 0;
@@ -106,12 +84,7 @@ console.log(`The random number is ${random} and it took ${attempts} attempt/s to
 
 
 console.log('\n--------TASK08--------\n')
-/* Task 08
-Requirement:
--Create an array that stores countries below.
-Germany, Argentina, Ukraine, Romania
-
-THEN:
+/* Create an array that stores countries below. Germany, Argentina, Ukraine, Romania
 -Output the entire array
 -Ouput the entire array sorted lexicographically
 */
@@ -119,17 +92,13 @@ THEN:
 const countries = ['Germany', 'Argentina', 'Ukraine', 'Romania']
 
 console.log(countries)
-
 console.log([...countries].sort())
 
 
-
 console.log('\n--------TASK09--------\n')
-/* Task 09
--Create a String array that stores cartoon dogs below
+/* Create a String array that stores cartoon dogs below
 Scooby Doo, Snoopy, Blue, Pluto, Dino, Sparky 
 
-THEN:
 -Output the entire array
 -Then, check if the array has Pluto element
 	if it has Pluto, then output true
@@ -144,28 +113,19 @@ console.log(cartoonDogs.includes('Pluto'))
 
 
 console.log('\n--------TASK10--------\n')
-
-/* Task 10
--Create an array that stores cartoon cats below.
+/* Create an array that stores cartoon cats below. 
 Garfield, Tom, Sylvester, Azrael
-
 THEN:
 -Output the entire array sorted lexicographically
 -Then, check if the array has both Garfield and Felix
 	if it has both, then output true
 	if it does not have both, output false
-
-Expected Result:
-[ 'Azrael', 'Garfield', 'Sylvester', 'Tom' ]
-false
 */
 
 const cartoonCats = ['Garfield', 'Tom', 'Sylvester', 'Azrael']
 
 console.log([...cartoonCats].sort())
-
 console.log(cartoonCats.includes('Garfield') && cartoonCats.includes('Felix'))
-
 
 
 console.log('\n--------TASK11--------\n')
@@ -188,11 +148,7 @@ for(let number of numbers) {
 
 
 console.log('\n--------TASK12--------\n')
-/* Task 12
-Requirement:
--Create an array that stores objects below.
-Pen, notebook, Book, paper, bag, pencil, Ruler
-
+/* Create an array that stores objects below - Pen, notebook, Book, paper, bag, pencil, Ruler
 THEN:
 -Output the entire array.
 -Output how many elements starts with 'B' or 'P', ignoring cases.
@@ -206,8 +162,8 @@ Elements having 'book' or 'pen' = 4
 
 const products =['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler']
 
-let startsWithBorP = 0
-let bookOrPenCount = 0
+startsWithBorP = 0
+bookOrPenCount = 0
 
 for(let product of products) {
     product = product.toLowerCase()
@@ -223,36 +179,9 @@ console.log(products)
 console.log(`Elements starting with 'B' or 'P' = ${startsWithBorP}`)
 console.log(`Elements having 'book' or 'pen' = ${bookOrPenCount}`)
 
-/*option 2
-
-const supplies =['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler']
-console.log(supplies)
-
-let startsWithBorP = 0
-let bookOrPenCount = 0
-
-for(let i = 0; i < supplies.length; i++) {
-    let element = supplies[i].toLowerCase()
-
-if(element[0] === 'p' || element[0] === 'b') {
-    startsWithBorP++
-    }
-if(element.includes('book') || element.includes('pen')) {
-    bookOrPenCount++
-    }
-}
-
-console.log(`Elements starting with 'B' or 'P' = ${startsWithBorP}`)
-console.log(`Elements having 'book' or 'pen' = ${bookOrPenCount}`)
-*/
-
 
 console.log('\n--------TASK13--------\n')
-/* Task 13
-Requirement:
--Create an array that stores numbers below.
-3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78
-
+/* Create an array that stores numbers below: 3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78
 THEN:
 -Output the entire array
 -Output how many elements are more than 10
@@ -274,9 +203,7 @@ let moreThanTen = 0
 
 for(const number of numbersArr) {
     if(number === 10) equalToTen++
-
     if(number < 10) lessThanTen++
-
     if(number > 10) moreThanTen++
 }
 
@@ -286,43 +213,15 @@ console.log(`Elements that are less than 10 = ${lessThanTen}`)
 console.log(`Elements that are 10 = ${equalToTen}`)
 
 
-/* option 2
-const numbersArr = [3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78]
-
-let equalToTen = 0
-let lessThanTen = 0
-let moreThanTen = 0
-
-for(let i = 0; i < numbersArr.length; i++) {
-
-    if(numbersArr[i] === 10) equalToTen++
-
-    if(numbersArr[i] < 10) lessThanTen++
-
-    if(numbersArr[i] > 10) moreThanTen++
-}
-
-console.log(numbersArr)
-console.log(`Elements that are more than 10 = ${moreThanTen}`)
-console.log(`Elements that are less than 10 = ${lessThanTen}`)
-console.log(`Elements that are 10 = ${equalToTen}`)
-*/
-
 
 console.log('\n--------TASK14--------\n')
-/* Task 14
-Requirement:
--Create 2 arrays that stores numbers below.
+/* Create 2 arrays that stores numbers below.
 First array-> 		[ 5, 8, 13, 1, 2 ]
 Second array -> 	[ 9, 3, 67, 1, 0 ]
-
 THEN:
 -Output both arrays
 –Then, create a new array that will take the greatest value of same index from first 2 arrays 
 and output the third array as well.
-
-Meaning - compare the elements at the same position in both arrays 
-and choose the greater value, placing it in a new array.
 
 Expected Result:
 1st array is =  [ 5, 8, 13, 1, 2 ]
@@ -336,9 +235,8 @@ const arr2 = [ 9, 3, 67, 1, 0 ]
 const arr3 = []
 
 for(let i = 0; i < arr1.length; i++) {
-    
     if(arr1[i] > arr2[i]) {
-        arr3.push(arr1[1])
+        arr3.push(arr1[i])
     } 
     else {
         arr3.push(arr2[i])
@@ -350,22 +248,12 @@ console.log(`2nd array is = ${arr2}`)
 console.log(`3rd array is = ${arr3}`)
 
 
-
 console.log('\n--------TASK15--------\n')
 /* Task 15
-Write a function named as firstDuplicate() which takes an array argument and 
-returns the first duplicated number in the array when invoked.
+Write a function named as firstDuplicate() which takes an array argument and returns the first duplicated number in the array when invoked.
 
 NOTE: Make your code dynamic that works for any array and return -1 if there are no duplicates in the array. 
 For two elements to be considered as duplicated, value and data types of the elements must be same.
-
-Examples:
-firstDuplicate([ 3, 7, 10, 0, 3, 10 ])		-> 3
-firstDuplicate([ 5, 7, 7, 0, 5, 10 ])		-> 5
-firstDuplicate([ 5, '5', 3, 7, 4 ])		-> -1
-firstDuplicate([ 123, 'abc', '123', 3, 'abc' ])	-> 'abc'
-firstDuplicate([ 1, 2, 3])			-> -1
-firstDuplicate([ 'foo', 'abc', '123', 'bar’ ]) 	-> -1
 */
 
 function firstDuplicate(arr) {
@@ -402,9 +290,7 @@ getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ])		-> [ 0, -7 ]
 getDuplicates([ 1, 2, 5, 0, 7 ])			-> [ ]
 getDuplicates(['A', 'foo', '12’ , 12, 'bar', 'a', 'a', 'foo' ])	-> [ 'foo', 'a’ ]
 getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ])		-> [ ]
-
 */
-
 
 function getDuplicates(arr) {
     let duplicates = []
@@ -418,31 +304,20 @@ function getDuplicates(arr) {
     return duplicates
 }
 
-
 console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]))
-console.log(getDuplicates([ 1, 2, 5, 0, 7 ]))
-console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ]))
-console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]))
-console.log(getDuplicates([ 1, 1, 2, 3, 2, 3, 2, 3]))
-
-
+console.log(getDuplicates([ 1, 2, 5, 0, 7 ])) 
+console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ])) 
+console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ])) 
 
 
 console.log('\n--------TASK17--------\n')
-/* Task 17
-Write a function named as reverseStringWords() which takes a string as an argument and 
-returns string back with each word separately reversed when invoked.
-
-NOTE: Make your code dynamic that works for any string. Make sure you consider extra spaces before and after words 
-in the given string.
-
+/* Write a function named as reverseStringWords() which takes a string as an argument and returns string back with each word separately reversed
 Examples:
 reverseStringWords("Hello World") 		-> "olleH dlroW"
 reverseStringWords("I like JavaScript") 	-> "I ekil tpircSavaJ"
 reverseStringWords("Hello") 		-> "olleH"
 reverseStringWords("") 			-> ""
 reverseStringWords("    ") 		-> ""
-
 */
 
 function reverseStringWords(str) {
@@ -465,21 +340,15 @@ console.log(reverseStringWords("    ") )
 
 
 console.log('\n--------TASK18--------\n')
-/* Task 18
-Write a function named as getEvens() which takes 2 number arguments and 
-returns all the even numbers as an array stored from smallest even number to greatest even number when invoked.
-
-NOTE: Make your code dynamic that works for any numbers and return empty array 
-if there are no even numbers in the range of given 2 numbers. 
-
+/* Write a function named as getEvens() which takes 2 number arguments and returns all the even numbers as an array stored from 
+smallest even number to greatest even number when invoked.
+NOTE: Make your code dynamic that works for any numbers and return empty array if there are no even numbers in the range of given 2 numbers. 
 Assume you will not be given negative numbers.
-
 Examples:
 getEvens(2, 7)	-> [ 2, 4, 6 ]
 getEvens(17, 5)	-> [ 6, 8, 10, 12, 14, 16 ]
 getEvens(4, 4)	-> [ 4 ]
 getEvens(3, 3)	-> [ ]
-
 */
 
 function getEvens(num1, num2) {
@@ -501,12 +370,9 @@ console.log(getEvens(3, 3))
 
 console.log('\n--------TASK19--------\n')
 
-/* Task 19
-Write a function named as getMultipleOf5() which takes 2 number arguments and returns all 
-the numbers divisible by 5 as an array stored from first found match to last found match when invoked.
-
-NOTE: Make your code dynamic that works for any numbers and return empty array 
-if there are no numbers divisible by 5 in the range of given 2 numbers. 
+/* Write a function named as getMultipleOf5() which takes 2 number arguments and returns all the numbers divisible by 5 as an array stored 
+from FIRST FOUND match to LAST FOUND match when invoked.
+NOTE: Make your code dynamic that works for any numbers and return empty array if there are no numbers divisible by 5 in the range of given 2 numbers. 
 
 Assume you will not be given negative numbers.
 
@@ -515,34 +381,28 @@ getMultipleOf5(3, 17)	-> [ 5, 10, 15]
 getMultipleOf5(23, 5)	-> [ 20, 15, 10, 5 ]
 getMultipleOf5(5, 5)	-> [ 5 ]
 getMultipleOf5(2, 4)	-> [ ]
-
-
 */
+
 function getMultipleOf5(num1, num2) {
     let multipleOf5 = []
 
-    for(i = Math.min(num1, num2); i <= Math.max(num1, num2); i++) {
-       if(i % 5 === 0) {
-        multipleOf5.unshift(i)
-       }
+    for(let i = Math.min(num1, num2); i <= Math.max(num1, num2); i++) {
+       if(i % 5 === 0) multipleOf5.push(i)
     }
+
+    if(num1 > num2) multipleOf5.reverse()
         return multipleOf5
     }
 
 console.log(getMultipleOf5(3, 17))
-console.log(getMultipleOf5(23, 5))
+console.log(getMultipleOf5(23, 5)) // [ 5, 10, 15, 20 ]
 console.log(getMultipleOf5(5, 5))
 console.log(getMultipleOf5(2, 4))
 
 
-
-
-/* Task 20
-Write a function named as fizzBuzz() which takes 2 number arguments and returns a string composed with 
-below requirements when invoked.
-
-You need to find all the numbers within the range of given 2 numbers (both inclusive) 
-and store them in a string from smallest to greatest number with a ' | ' separator for each number.
+/* Write a function named as fizzBuzz() which takes 2 number arguments and returns a string composed with below requirements when invoked.
+You need to find all the numbers within the range of given 2 numbers (both inclusive) and store them in a string 
+from smallest to greatest number with a ' | ' separator for each number.
 
 You will need to convert numbers divisible by 3 to 'Fizz'
 You will need to convert numbers divisible by 5 to 'Buzz'
@@ -556,10 +416,29 @@ fizzBuzz(13, 18)	-> "13 | 14 | FizzBuzz | 16 | 17 | Fizz"
 fizzBuzz(12, 5)	-> "Buzz | Fizz | 7 | 8 | Fizz | Buzz | 11 | Fizz"
 fizzBuzz(5, 5)	-> "Buzz"
 fizzBuzz(9, 6)	-> "Fizz | 7 | 8 | Fizz"
-
 */
 
+function fizzBuzz(num1, num2) {
+    let fullRangeArr = []
 
+    for (let i = Math.min(num1, num2); i <= Math.max(num1, num2); i++) {
+        fullRangeArr.push(i)
+    }
+
+    let mappedArr = fullRangeArr.map((num) => {
+        if(num % 3 === 0 && num % 5 === 0) return 'FizzBuzz'
+            if(num % 3 === 0) return 'Fizz'
+                if(num % 5 === 0) return 'Buzz'
+                    return num
+    })
+
+    return mappedArr.join(' | ')
+}
+
+console.log(fizzBuzz(13, 18))
+console.log(fizzBuzz(12, 5))
+console.log(fizzBuzz(5, 5))
+console.log(fizzBuzz(9, 6))
 
 
 
