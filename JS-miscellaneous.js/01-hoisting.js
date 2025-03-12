@@ -3,9 +3,15 @@
 let x;
 console.log(x); // undefined
 
-console.log(y);
+
+console.log(y); // undefined
 
 var y = 5;
+
+
+console.log(z); // ReferenceError: Cannot access 'z' before initialization
+
+let z = 5;
 
 /*
 HOISTING: moving variable  declarations to the top of the file
@@ -37,4 +43,18 @@ sayHello(); // "Hello!"
 
 function sayHello() {
   console.log("Hello!");
+}
+
+
+// Hoisting can happen in a block or unction body as well
+
+function startProcess() { // reference error
+  console.log(smth);
+
+  let smth = 10;
+}
+
+if(true) {
+  console.log(name)
+  name = 'Alex'
 }

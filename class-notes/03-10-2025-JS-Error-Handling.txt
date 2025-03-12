@@ -1,0 +1,31 @@
+Relevant for ALL programing languages.
+
+ERRORS:
+
+Errors that can be fixed with code:
+    - unexpected result caused by programmers code
+
+    - CHECKED (syntax errors) (compile-time errors): you SEE the errors before you run
+    - UNCHECKED (runtime errors): you see thse errors when you run the code
+
+
+
+Errors caused by server, network, loads
+    - not in your realm of possibilities 
+
+
+CUSTOM ERRORS:
+- JS allows us to throw an error (create an error) using "throw keyword
+
+
+
+
+
+INTERVIEW QUESTIONS:
+    - What is error handling?
+    - How do you handle errors? I use Try/catch blocks
+    - What are some types of JS errors
+    - What are checked and unchecked exceptions (meaning errors)?
+    - What are comnpile-time and runtime exceptions/ errors?
+
+

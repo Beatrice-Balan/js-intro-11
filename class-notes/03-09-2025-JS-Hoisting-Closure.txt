@@ -1,0 +1,179 @@
+HOISTING: ability to call a variable or function before their declarations
+var = hoisted
+let, const = NOT hoisted
+
+
+Hoisting in JavaScript means that variable and function declarations are moved to the top of their scope before the code runs.
+This is why you can sometimes use a variable or function before it's written in the code.
+
+JS will move all variable declaration to the top when they are used with var keyword
+
+console.log(name); // undefined
+var name = 'John'; 
+
+console.log(name); // undefined
+let name = 'John' OR const name = 'John' // ReferenceError: Cannot access 'name' before initialization
+
+FUNCTIONS:
+- traditional function declaration are hoisted. Can be used before their declaration
+
+sum(3, 5);
+function sum(num1, num2) {
+    console.log(num1 + num2);
+}
+
+- functions created with arrow or expreessions cannot be hoisted. You CanNOT use them before their declaration.
+
+goToSite() // ReferenceError: Cannot access 'goToSite' before initialization
+
+const goToSite = function() {
+    console.log('Here'stthe website')
+}
+
+
+
+Explain differences between: var-let-const
+
+1. Re-assignment:
+    - Var and Let can be re-assigned
+    - Const cannot be reassigned
+
+2. Hoisting:
+    - var is hoisted - var declarations move to the top = no errors if you try to access them before declaration, you get undefined instead
+    - let and const are Not hoisted: you get RefferenceError if you try to access them before their declaration
+
+3. Scope:
+    - var-let-const all support global and function scope
+    - var does Not support block scope (variables decalred with var within a block, CAN be used outside the block)
+    - let and const DO support block scope (variables declered with let/const within a block cannot be used outside the block)
+
+
+
+
+
+In JavaScript, BLOCK SCOPE  refers to variables declared with let and const that are confined to the block in which they are defined 
+(like inside loops, conditionals, or functions). These variables are not accessible outside the block where they are created.
+
+Key Points about Block Scope:
+Defined by {} (Curly Braces):
+
+A block is anything inside curly braces {}—such as in loops, conditionals, or functions.
+let and const are Block-scoped:
+
+let and const variables only exist within the block they are declared in, unlike var, which is function-scoped.
+
+Why Block Scope Matters:
+    - It helps avoid bugs and confusion by ensuring that variables are not accidentally accessed outside the intended scope.
+    - Makes the code cleaner, more predictable, and avoids pollution of the global or function scope.
+    - In summary, block-scoped variables (let and const) are confined to the curly braces {} they are declared within 
+        and are not accessible outside of those blocks.
+
+
+Lexical Scope in JavaScript:
+
+Lexical scope means that the scope of a variable is determined by where it is declared in the source code 
+(i.e., its position in the code, not where it's executed). This is a key concept in JavaScript's scoping mechanism.
+
+How it works:
+    - A variable is accessible within the block, function, or file where it’s declared, as well as any nested blocks/functions.
+    - It doesn’t matter where the function is called, the function will still have access to variables in the scope where it was defined.
+
+
+
+Closure in JavaScript:
+    - A closure occurs when a function "remembers" the environment in which it was created, even after it is executed outside of that environment. 
+        This allows the function to access variables from its lexical scope even when called outside of that scope.
+
+How it works:
+    - Closures allow a function to access and manipulate variables from its outer (lexical) scope even after the outer function has finished executing.
+This is why closures are often used for data encapsulation and creating private variables.
+
+Closures allow a function to access and manipulate variables from "outside" the function it was declared in.
+    Same function will provide another function to manipulate it
+
+- closure is when a function retains access to variables from its outer scope, 
+even after the outer function has finished executing.
+
+
+function outer() {
+    // declare private variable
+    // provide a function which updates the variable value
+    // return inner function to be used outside
+}
+
+const innerFunction = outer();
+
+innerFunction(); // update the private variable value
+
+
+A closure is like a chef’s recipe. 
+The chef (outer function) writes down the ingredients (variables) and method. 
+Even after the chef leaves the kitchen, anyone with the recipe (inner function) 
+can still use it to recreate the dish, using the ingredients that were originally written down.
+
+
+
+INTERVIEW QUESTIONS:
+1. var-let-const (reassignment, hoistings, scope)
+2. What is scope in JS?
+3. What is hoisting?
+4. What is closure?
+
+# good to know: Currying in JS:
+
+What is Currying?
+Currying is a functional programming concept in JavaScript where a function that takes multiple arguments is transformed into a series of functions that each take a single argument.
+
+In simpler terms, currying allows you to break a function that takes many arguments into smaller functions, each taking one argument at a time.
+
+How Does Currying Work?
+When you call a curried function, instead of passing all the arguments at once, you provide them one by one, and each function returns another function until all arguments are provided. Once all arguments are received, the final function is executed.
+
+Example of Currying:
+javascript
+Copy
+Edit
+// Regular function that takes multiple arguments
+function add(a, b, c) {
+    return a + b + c;
+}
+
+// Curried version of the add function
+function curriedAdd(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        }
+    }
+}
+
+const result = curriedAdd(1)(2)(3);  // Calling the curried function step-by-step
+console.log(result);  // Output: 6
+In this example:
+
+The original add(a, b, c) function takes all three arguments at once and adds them.
+The curried version curriedAdd(a) takes the first argument a, then returns another function that takes the second argument b, and that returns yet another function that takes the third argument c. Once all three arguments are provided, it performs the addition.
+Key Points:
+Normal function: You call it with all arguments at once: add(1, 2, 3).
+Curried function: You call it with one argument at a time: curriedAdd(1)(2)(3).
+Why Use Currying?
+Partial Application: You can call a curried function with some arguments and return a new function that expects the remaining ones. This allows you to create specialized versions of a function by "partially applying" the arguments.
+
+Example: Partial Application with Currying
+
+function multiply(a) {
+    return function(b) {
+        return a * b;
+    }
+}
+
+const multiplyBy2 = multiply(2);  // We partially apply the first argument
+console.log(multiplyBy2(5));  // Output: 10
+In this example:
+
+We create a curried function multiply().
+By calling multiply(2), we get a new function (multiplyBy2) that multiplies any number by 2.
+Summary:
+Currying is when a function that takes multiple arguments is broken down into multiple functions, each taking a single argument.
+It allows for partial application, which helps you create more reusable, flexible functions.
+

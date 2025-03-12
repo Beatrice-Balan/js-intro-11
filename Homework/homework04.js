@@ -29,6 +29,11 @@ for(let i = 100; i >= 50; i -= 5) {
     console.log(i)
 }
 
+// preferred
+for(let i = 100; i >= 50; i--){
+    if(i % 5 === 0) console.log(i);
+}
+
 
 console.log('\n--------TASK04--------\n')
 // Write a program that outputs the squares of all numbers starting from 0 to 7 (both inclusive).
@@ -54,13 +59,25 @@ console.log('\n--------TASK06--------\n')
 Mathematically, the factorial of a non-negative integer n is defined as: n! = n × (n-1) × (n-2) × ... × 2 × 1
 */
 
-let ran = Math.floor(Math.random() * 10) + 1
+let ran = Math.floor((Math.random() * 10) + 1)
 
 let factorial = 1;
 
+/*
 for(let i = ran; i >= 1; i--) {
     factorial *= i
+} */
+
+    // preferred solution:
+
+for(let i = 2; i <= random; i++){
+    factorial *= i
 }
+// for(let i = random - 1; i >= 1; i--){
+//     factorial *= i;
+// }
+// if(factorial === 0) factorial = 1;
+
 
 console.log(`${ran}! = ${factorial}`)
 
@@ -78,6 +95,16 @@ while(random % 5 !== 0) {
    random = Math.floor(Math.random() * 100) + 1
     attempts++
 }
+
+// TG option: 
+// let randomNumber;
+let count = 0;
+
+do{
+    randomNumber = Math.floor((Math.random() * 100) + 1);
+    count++;
+}while(randomNumber % 5 !== 0)
+
 
 console.log(`The random number is ${random} and it took ${attempts} attempt/s to generate it.`)
 
@@ -140,11 +167,22 @@ THEN:
 
 const numbers = [10.5, 20.75, 70, 80, 15.75]
 
+// for of
 console.log(numbers)
 
 for(let number of numbers) {
     console.log(number)
 }
+
+// for loop
+for(let i = 0; i < numbers.length; i++){
+    console.log(numbers[i])
+}
+
+// for each
+console.log(numbers)
+numbers.forEach((number)=>console.log(number))
+
 
 
 console.log('\n--------TASK12--------\n')
@@ -160,10 +198,10 @@ Elements starting with 'B' or 'P' = 5
 Elements having 'book' or 'pen' = 4 
 */
 
-const products =['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler']
+let products =['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler']
 
-startsWithBorP = 0
-bookOrPenCount = 0
+let startsWithBorP = 0
+let bookOrPenCount = 0
 
 for(let product of products) {
     product = product.toLowerCase()
@@ -174,6 +212,19 @@ for(let product of products) {
         bookOrPenCount++
         }
 }
+
+// using startsWith:
+let objs = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
+let countBorP = 0;
+let countBookOrPen = 0;
+
+for(let obj of objs){
+    obj = obj.toLowerCase()
+    if(obj.startsWith('b') || obj.startsWith('p')) countBorP++;
+
+    if(obj.includes('book') || obj.includes('pen')) countBookOrPen++;
+}
+
 
 console.log(products)
 console.log(`Elements starting with 'B' or 'P' = ${startsWithBorP}`)
@@ -202,10 +253,18 @@ let lessThanTen = 0
 let moreThanTen = 0
 
 for(const number of numbersArr) {
-    if(number === 10) equalToTen++
-    if(number < 10) lessThanTen++
-    if(number > 10) moreThanTen++
+    if(number > 10) moreThan10++;
+    else if(number < 10)lessThan10++;
+    else is10++;
 }
+
+// for each method:
+// numbers.forEach(function (num) {
+//     if(num > 10) moreThan10++;
+//     else if(num < 10)lessThan10++;
+//     else is10++;
+// })
+
 
 console.log(numbersArr)
 console.log(`Elements that are more than 10 = ${moreThanTen}`)
@@ -243,6 +302,12 @@ for(let i = 0; i < arr1.length; i++) {
     }
 }
 
+// MUCH easier solution:
+
+for(let i = 0; i < arr1.length; i++){
+    arr3.push(Math.max(arr1[i], arr2[i]))
+}
+
 console.log(`1st array is = ${arr1}`)
 console.log(`2nd array is = ${arr2}`)
 console.log(`3rd array is = ${arr3}`)
@@ -250,7 +315,8 @@ console.log(`3rd array is = ${arr3}`)
 
 console.log('\n--------TASK15--------\n')
 /* Task 15
-Write a function named as firstDuplicate() which takes an array argument and returns the first duplicated number in the array when invoked.
+Write a function named as firstDuplicate() which takes an array argument and returns the first duplicated number in 
+the array when invoked.
 
 NOTE: Make your code dynamic that works for any array and return -1 if there are no duplicates in the array. 
 For two elements to be considered as duplicated, value and data types of the elements must be same.
@@ -267,6 +333,31 @@ function firstDuplicate(arr) {
     }
     return -1;
   }
+
+
+
+// Solution -> nested loop
+
+function firstDuplicate(arr){
+    for(let i = 0; i < arr.length; i++){
+
+        for(let j = i + 1; j < arr.length; j++){
+
+            if(arr[i] === arr[j]) return arr[i];
+        }
+    }
+    return -1;
+}
+
+// simple solution with .includes()
+
+const firstDuplicate = arr => {
+    for(let i = 0; i< arr.length; i++) {
+        if(arr.includes(arr[i], i + 1)) return arr[i]
+    }
+    return -1
+}
+
 
 console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]))
 console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]))
@@ -304,6 +395,31 @@ function getDuplicates(arr) {
     return duplicates
 }
 
+// more solutions:
+
+// function getDuplicates(arr){
+//     let duplicates = [];
+
+//     for(let i = 0; i < arr.length; i++){
+//         for(let j = i+1; j < arr.length; j++){
+//             if(arr[i] === arr[j] && !duplicates.includes(arr[i])) duplicates.push(arr[i])
+//         }
+//     }
+//     return duplicates;
+// }
+
+function getDuplicates(arr){
+    let container = [];
+    let allDuplicates = [];
+
+    for(let obj of arr){
+        if(container.includes(obj) && !allDuplicates.includes(obj)) allDuplicates.push(obj)
+        else container.push(obj)
+    }
+    return allDuplicates;
+}
+
+
 console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]))
 console.log(getDuplicates([ 1, 2, 5, 0, 7 ])) 
 console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ])) 
@@ -331,7 +447,37 @@ function reverseStringWords(str) {
      return reversedWords.join(' ')
 }
 
-console.log(reverseStringWords("Hello World"))
+// TG solution:
+function reverseStringWords(str){
+    let strAsArr = str.trim().split(' ')
+    
+    for(let i = 0; i < strAsArr.length; i++){
+        strAsArr[i] =  strAsArr[i].split('').reverse().join('')
+    }
+    return strAsArr.join(' ');
+}
+
+// map solution
+function reverseStringWords(str) {
+    let words = str.trim().split(/\s+/)
+   return words.map(ele => ele.split('').reverse().join(''))
+}
+
+
+// NO .reverse()
+function reverseStringWords(str) {
+    let words = str.trim().split(/\s+/);
+   return words.map(word => {
+    let reversedW = '';
+    for(let i = word.length - 1; i >= 0; i--){
+        reversedW += word[i];
+    }
+    return reversedW;
+   }).join(' ')
+}
+
+
+console.log(reverseStringWords("Hello             World"))
 console.log(reverseStringWords("I like JavaScript"))
 console.log(reverseStringWords("    ") )
 console.log(reverseStringWords("Hello"))
@@ -360,6 +506,19 @@ function getEvens(num1, num2) {
        }
     }
         return evenNums
+    }
+
+// with grater and smaller declared 
+    function getEvens(num1, num2){
+        let evens = [];
+        let greaterNumber = Math.max(num1, num2);
+        let smallerNumber = Math.min(num1, num2);
+    
+        for(let i = smallerNumber; i <= greaterNumber; i++){
+            if(i % 2 === 0) evens.push(i)
+        }
+    
+        return evens;
     }
 
 console.log(getEvens(2, 7))
@@ -394,11 +553,25 @@ function getMultipleOf5(num1, num2) {
         return multipleOf5
     }
 
+// TG solution
+    function getMultipleOf5(num1, num2){
+        let divisibleBy5 = []
+    
+        for(let i = Math.max(num1, num2); i >= Math.min(num1, num2); i--){
+            if(i % 5 === 0) divisibleBy5.push(i)
+        }
+    
+        if(num1 < num2) return divisibleBy5.reverse()
+        return divisibleBy5
+    }
+
 console.log(getMultipleOf5(3, 17))
 console.log(getMultipleOf5(23, 5)) // [ 5, 10, 15, 20 ]
 console.log(getMultipleOf5(5, 5))
 console.log(getMultipleOf5(2, 4))
 
+
+console.log('\n--------TASK20--------\n')
 
 /* Write a function named as fizzBuzz() which takes 2 number arguments and returns a string composed with below requirements when invoked.
 You need to find all the numbers within the range of given 2 numbers (both inclusive) and store them in a string 
@@ -427,13 +600,35 @@ function fizzBuzz(num1, num2) {
 
     let mappedArr = fullRangeArr.map((num) => {
         if(num % 3 === 0 && num % 5 === 0) return 'FizzBuzz'
-            if(num % 3 === 0) return 'Fizz'
-                if(num % 5 === 0) return 'Buzz'
+            else if(num % 3 === 0) return 'Fizz'
+               else if(num % 5 === 0) return 'Buzz'
                     return num
     })
 
     return mappedArr.join(' | ')
 }
+
+
+// TG solution:
+
+const fizzBuzz = (num1, num2) => {
+    const arr = [];
+    for (let i = Math.min(num1, num2); i <= Math.max(num1, num2); i++) {
+        let str = '';
+        if (i % 3 === 0) {
+            str += 'Fizz';
+        }
+        if (i % 5 === 0) {
+            str += 'Buzz';
+        }
+        if (str === '') {
+            str = i.toString();
+        }
+        arr.push(str);
+    }
+    console.log(arr.join(' | '));
+}
+
 
 console.log(fizzBuzz(13, 18))
 console.log(fizzBuzz(12, 5))
