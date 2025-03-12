@@ -358,25 +358,6 @@ findClosestTo10([0, -1, -2]) 		-> 0
 */
 
 const findClosestTo10 = arr => {
-    let closestTo10 = Infinity;
-
-    for(const num of arr) {
-       if(num === 10) continue
-
-        if(Math.abs(num - 10) < Math.abs(closestTo10 - 10) || (Math.abs(num - 10) === Math.abs(closestTo10 - 10) && num < closestTo10)) {
-            closestTo10 = num
-        }
-    }
-    return closestTo10
-}
-
-console.log(findClosestTo10([10, -13, 5, 70, 15, 57]))
-console.log(findClosestTo10([10, -13, 8, 12, 15, -20]))
-console.log(findClosestTo10([0, -1, -2]))
-
-
-// REDUCE()
-const findClosestTo10 = arr => {
 
    return arr.filter(num => num !== 10).reduce((acc, curr) => {
         let currAbsDiff = Math.abs(curr - 10)
