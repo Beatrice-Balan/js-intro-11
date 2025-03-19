@@ -1,0 +1,78 @@
+OOPs Object-Oriented Programming
+- helps to put real life objects into programming
+
+OOP: Java, C#, C++
+Prototype based: JS, templates
+
+Javascript started to implement classes (OOP) after ES6
+
+Before ES6: 
+// used constructor function:
+function Phone(brand, color, price) {
+    this.brand = brand;
+    this.color = color;
+    this.proce = price;
+}
+
+const phone1 = new Phone('iPhone', 'Purple', 1000)
+const phone2 = new Phone('Samsung', 'Blue', 1200)
+const phone3 = new Phone('Nokia', 'Black', 750)
+
+phone1.brand; // iPhone
+phone2.color; // Blue
+phone3.price; // 750
+
+phone1.color = 'Yellow'; // update value and re-assign
+
+phone1.color; // Yellow
+
+
+
+AFTER ES6:
+
+// no more function constructor -> now we have classes
+
+class Phone() {
+    constructor(brand, color, price) {
+    this.brand = brand;
+    this.color = color;
+    this.proce = price;
+    }
+}
+
+
+const phone1 = new Phone('iPhone', 'Purple', 1000)
+const phone2 = new Phone('Samsung', 'Blue', 1200)
+const phone3 = new Phone('Nokia', 'Black', 750)
+
+phone1.brand; // iPhone
+phone2.color; // Blue
+phone3.price; // 750
+
+phone1.color = 'Yellow'; // update value and re-assign
+
+phone1.color; // Yellow
+
+
+Prototype/ Class = templates, blueprints    // Phone class(prototype)
+Object = Insrtance of a class/ prototype   // phone1, phone2, phone3
+
+
+Each prototype or class will have:
+
+Properties: what it has. Phone has brand, color, price
+Method: What it does. Phone calls, texts, rings
+
+
+/* 2 ways to import
+CommonJS (module.exports require) - used with NodeJS
+
+ES6 Modules (import export keywords) 
+- are not directly supported with NodeJS but browsers
+
+*/
+
+
+
+
+

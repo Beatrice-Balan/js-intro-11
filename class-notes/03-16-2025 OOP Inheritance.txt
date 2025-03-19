@@ -1,0 +1,88 @@
+**** MUST KNOW **** :
+ES6 ClassesInheritance with ES6 using extend keyword
+function constructor
+super keyword - constructor
+
+
+GOOD TO KNOW:
+Prototypal inheritance
+
+
+OKAY if you forget:
+prototype chain
+Object.create()
+
+
+Recap + new stuff
+
+OOP:
+- reusability
+- maintainability
+- easy to read
+
+- Avoids duplication by creating a template that can be re-used to create objects
+
+const person1 = {
+    fname: 'John'
+    age: 25,
+    study: function () {
+        return true;
+    }
+}
+
+// Before ES6
+
+function Person (fname, age) {
+    this.fname = fname;
+    this.age = age;
+}
+
+Person.prototype.study = function () {
+    return true;
+}
+
+Person.prototype.eat = function () {
+    return true;
+}
+
+const person1 = new Person ('Jane', 22);
+const person2 = new Person ('Alex', 31);
+const person3 = new Person ('Mariia', 26);
+
+
+// AFTER ES6
+class Person {
+    constructor(fname, age) {
+        this.fname = fname;
+        this.age = age;
+    }
+    study() {
+        return true;
+    }
+    eat {
+        return true;
+    }
+}
+
+Inheritance concept: Child-Parent relationship
+
+Parent classes: Base class (Super class) -> inherited by child classes
+Child classes: Sub classes -> inheriting from Parent classes
+
+Classes have -> constructor, methods, properties (thse can be inherited)
+
+
+
+Number.AMX_SAFE_INEGER // static property of Number prototypw
+Math.max() // static method of Math prototype
+
+class AutomationHelper {
+    static info = 'This is a helper class';
+
+    static helperMethod () {}
+    static helperMethod2 () {}
+}
+
+AutomationHelper.helperMethod1; 
+
+

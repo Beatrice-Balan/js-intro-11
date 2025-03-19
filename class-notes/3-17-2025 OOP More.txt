@@ -1,0 +1,261 @@
+
+Reusing your object with spread opertor
+
+const obj1 = {
+    key1: 'value1',
+    key2: 'value2'
+}
+
+const obj2 =  {
+    ...obj1,
+    newKey: 'newValue'
+}
+
+Re-using your object with Object.create()
+
+const obj1 = {
+    key1: 'value1',
+    key2: 'value2'
+}
+
+const obj2 = Object.create(obj1);
+obj2.newKey = 'newValue'
+
+If you want to create a bunch of objects use:
+
+1. Prototypes (Before ES6)
+
+function(title, duration, director) {
+    this.title = title;
+    this.duration = duration;
+    this.director = director;
+ }
+
+Movie.prototype.publish = function () {
+    console.log('PUBLISH');
+}
+
+const movie1 = new Movie('Batman', 180, 'John Doe');
+const movie2 = new Movie('Inception', 175, 'Jane Doe');
+
+movie1.publish();
+movie2.publish();
+
+
+2. ES6 classes
+
+class Movie {
+    constructor(title, duration, director)
+    this.title = title;
+    this.duration = duration;
+    this.director = director;
+
+    publish() {
+    console.log('PUBLISH');        
+    }
+}
+
+const movie1 = new Movie('Batman', 180, 'John Doe');
+const movie2 = new Movie('Inception', 175, 'Jane Doe');
+
+movie1.publish();
+movie2.publish();
+
+
+
+Inheritance:
+
+1. Prototypal Inheritance
+1.1. Individual
+
+const obj1 = {
+    key1: 'value1',
+    key2: 'value2'
+}
+
+const obj2 = Object.create(obj1); // obj2 inherits all prop and methods from obj1
+obj2.newKey = 'newValue'
+
+1.2. Prototypes Inheritance
+function Book(author, title) {
+    this.author = author;
+    this.title = title;
+}
+
+Book.prototype.sell = function() {
+    console.log('SELL')
+}
+
+function PLBook() {}
+
+PLBook.prototype = Object.create(Book.prototype)
+
+const book1 = new PLBook()
+book1.sell()
+
+
+
+2. ES6 Classes
+
+class Book {
+    constructor(author, title) {
+        this.author = author;
+        this.title = title;
+}
+sell() {
+    console.log('SELL')
+}
+}
+
+class PLBook extends Book {
+   constructor(author, title, compiled) {
+    super(author, title);
+    this.compiled = compiled;
+   }
+}
+
+const jsBook = new PLBook('John Doe', 'Intro to JS', false)
+const tsBook = new PLBook('John Doe', 'Intro to JS', true)
+
+jsBook.sell()
+jsBook.sell()
+
+
+**** INTERVIEW QUESTIONS ****
+
+INHERITANCE RULES:
+    - Parent class can have multiple child classes
+    - Child class can only have ONE parent (WRONG: class A extends B, C, D)
+    - Child class inherits properties, constructors and methods of the parent class
+    - Parent class can NEVER access any of the prop, constructors, methods of child class
+
+*** WHAT IS CONSTRUCTOR?
+- It is a special function/ method used to create instances/ objects of the classes/ prototype
+- always used next to 'new' keyword to create an object
+- every class will have a default (meaning 0 arg) constructor if you do not create a custom one
+
+template = prototype = class = blueprint
+object = instances
+
+Class is a blueprint from which many objects/ instances can be created.
+Instance/ Object is instanciated from a class
+
+
+*** this vs super keyword
+this = refers to current object
+super= refers to parent class object
+
+this() = refers to current class constructor
+suepr() = refers to parent class constructor
+
+
+class A {
+    // 2 instance methods here
+}
+
+class B extends A {
+    // has additional 3 instance methods
+}
+
+class C extends B {
+    // has additional 5 instance methods
+}
+
+const c = new C() // has access to all 10 methods
+
+
+*** WHAT IS ENCAPSULATION AND ITS BENEFITS? ***
+- Making porivate properties for a class and providing public getters and setters
+    getters are used to retreive the private properties -> usually return type methods
+    setters are used to update/ set informationthe private uinfo -> usually void methods and takes arguments
+
+
+Encapsulation: Protects the internal state by controlling access.
+    - increases data security
+    - can make data read only or write only
+
+Validation: Ensures proper data handling through validation in setters.
+Abstraction: Hides the complexity of implementation from the outside code.
+
+
+
+
+*** WHAT ARE THE OOP PRINCIPLES? ***
+
+- In JS we are relaying on prototypes not so much OOP
+We do use:
+    - Inheritance for reusability (extends keyword): inherit parent class prop, methods, constructors
+    - Encapsulation: making private properties and providing public getters and setters
+
+    - Abstraction: TypeScript. Parent Class will have abstract methods (methods with no body/ implementation)
+                    and child class must implement method
+
+    - Polymorphism: JS DOES NOT HAVE IT AT ALL. not done like the other programming languages. one object being able to get many shapes
+
+
+Polymorphism
+Objects can take on multiple forms (e.g., methods with the same name behave differently in different contexts).
+Benefit: Simplifies code and promotes flexibility.
+
+Abstraction: JS DOES NOT HAVE IT AT ALL
+Hiding complex implementation details and exposing only essential features.
+Benefit: Reduces complexity and increases clarity.
+
+
+instance variables = properties = fields = states
+
+
+
+
+
+*** What is 'IS A RELATIONSHIP' vs 'HAS A RELATIONSHIP' ?
+
+1. IS A Relationship (Inheritance)
+"IS A" is used when one class inherits from another class.
+This describes an inheritance relationship where one class is a specialized version of another.
+The subclass is a type of the parent class. It inherits the behavior and attributes of the parent class.
+
+In this case, Dog is a type of Animal. 
+This is an "IS A" relationship because a Dog is an Animal, but with more specific behaviors.
+
+class Animal {
+
+}
+
+class GermanShepherd extends Animal {
+
+}
+
+GermanSheperd is a Dog
+GermanSheperd is an Animal
+
+IS A RELATIONSHIP: inheritance parent-child relationship
+
+
+HAS A Relationship (Composition)
+"HAS A" is used when one class contains or has a reference to another class.
+This describes a composition or aggregation relationship where an object has another object as part of its structure.
+The class doesn’t inherit from the other; it simply uses the other object.
+
+In this case, Car has a Engine. It doesn't inherit from Engine, but it contains an instance of Engine. 
+This is a "HAS A" relationship because the car has an engine.
+
+Summary of Differences:
+"IS A" (Inheritance) refers to a subclass being a specialized version of the superclass (e.g., a Dog is an Animal).
+"HAS A" (Composition) means that one class contains an instance of another class as part of its structure (e.g., a Car has a Engine).
+
+
+Author HAS Books
+Car HAS Engine
+
+HAS RELATIONSHIP: it's not inheritance but they have a relationship, one class uses another class as property
+
+class Car{
+	constructor(engine) {
+	}
+}
+class Engine {
+	
+}
+
+

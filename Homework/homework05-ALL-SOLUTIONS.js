@@ -202,6 +202,44 @@ console.log(factorial(0))
 console.log(factorial(1))
 
 
+const factorial = num => {
+    let result = 1;
+    for(let i = num; i > 1; i--) {
+        result *= i
+    }
+    return result
+}
+
+console.log(factorial(5))
+console.log(factorial(4))
+console.log(factorial(0))
+console.log(factorial(1))
+
+
+// BILAL ->  RECURSION - GOOD FOR INTERVIEWS
+// not that good for code
+
+// factorial(0) = 1
+// factorial(1) = 1
+// factorial(2) =  2 * factorial(2 - 1) -> 2 * 1 = 2
+// factorial(3) =  3 * factorial(3 - 1) -> 3 * 2 = 6
+// factorial(3) =  4 * factorial(4 - 1) -> 4 * 6 = 24
+
+
+const factorial = num => num === 0 || num === 1 ? 1 : num * factorial(num - 1)
+
+console.log(factorial(5))
+console.log(factorial(4))
+console.log(factorial(0))
+console.log(factorial(1))
+
+
+
+
+
+
+
+
 
 console.log('\n--------TASK07--------\n')
 /* Write a function named as isPalindrome() which takes a string word as an argument and returns true if the word is palindrome 
@@ -372,6 +410,45 @@ console.log(isPrime(1)) // false
 console.log(isPrime(3)) // true
 
 
+// BILAL SOLUTION:
+// LEARN THIS ONE
+
+
+const isPrime = num => {
+    if (num < 2) return false;
+    if (num === 2 || num === 3) return true;
+    if (num % 2 === 0 || num % 3 === 0) return false; // if num is not 2, and is even, then it can't be a prime number
+// make the loop so it has less iterations
+    for(i = 5; i < num; i+=2) {
+        if (num % i === 0) return false
+    }
+    return true
+}
+
+/*
+- You immediately return false for numbers less than 2, and true for 2 and 3, which are prime numbers
+- By checking if the number is divisible by 2 or 3 right away, you avoid checking even numbers or multiples of 3. 
+This ensures fewer iterations in the loop.
+- You start the loop from 5 and increment by 2 (i+=2), which skips even numbers (since you already checked for divisibility by 2) 
+and reduces the number of iterations. You’re only checking odd numbers after 3.
+
+*/
+
+
+
+
+console.log(isPrime(5)) // true
+console.log(isPrime(2)) // true
+console.log(isPrime(29)) // true
+console.log(isPrime(-5)) // false
+console.log(isPrime(0)) // false
+console.log(isPrime(1)) // false
+console.log(isPrime(3)) // true
+
+
+
+
+
 
 
 console.log('\n--------TASK11--------\n')
@@ -459,18 +536,6 @@ console.log(findClosestTo10([10, -13, 5, 70, 15, 57]))
 console.log(findClosestTo10([10, -13, 8, 12, 15, -20]))
 console.log(findClosestTo10([0, -1, -2]))
 
-/* Write a function named findClosestTo10() which takes an array of numbers as argument and returns the closest element 
-to 10 from the given array.
-
-NOTE: Assume that length of array is always more than zero.
-NOTE: Ignore the 10 itself.
-NOTE: If there are more than one numbers are close equally, return the smaller number.
-
-Examples:
-findClosestTo10([10, -13, 5, 70, 15, 57]​) 	-> 5
-findClosestTo10([10, -13, 8, 12, 15, -20]) 	-> 8
-findClosestTo10([0, -1, -2]) 		-> 0
-*/
 
 // TRY REDUCE()
 const findClosestTo10 = arr => {
@@ -479,7 +544,7 @@ const findClosestTo10 = arr => {
         let currAbsDiff = Math.abs(curr - 10)
         let closestTo10AbsDiff = Math.abs(acc - 10)
 
-        if (currAbsDiff < closestTo10AbsDiff || (currAbsDiff === closestTo10AbsDiff && curr < acc)) {
+        if (currAbsDiff < closestTo10AbsDiff || (currAbsDiff === closestTo10AbsDiff) && (curr < acc)) {
             return curr
         }
             return acc
@@ -489,6 +554,29 @@ const findClosestTo10 = arr => {
 console.log(findClosestTo10([10, -13, 5, 70, 15, 57]))
 console.log(findClosestTo10([10, -13, 8, 12, 15, -20]))
 console.log(findClosestTo10([0, -1, -2]))
+
+// BILAL
+
+const findClosestTo10 = arr => {
+    let closestTo10 = Number.MAX_VALUE;
+    let closestDiff = Number.MAX_VALUE;
+
+    for(let num of arr) {
+        if(num === 10) continue;
+
+        let currDiff = Math.abs(num - 10)
+
+        if(currDiff < closestDiff || (currDiff === closestDiff) && num < closestTo10) {
+            closestTo10 = num
+            closestDiff = currDiff;
+    }
+}
+    return closestTo10
+} 
+
+console.log(findClosestTo10([10, -13, 5, 70, 15, 57])) // 5
+console.log(findClosestTo10([10, -13, 8, 12, 15, -20])) // 8
+console.log(findClosestTo10([0, -1, -2])) // 0
 
 
 
@@ -564,6 +652,23 @@ const isEmailValid = str => {
 return true
 }
 
+// BILAL SOLUTION BUT I GOT SOMETHING WROGNG HERE -
+
+const isEmailValid = email => {
+    if(email.includes(' ')) return false
+
+    let beforeAt = email.split('@')[0] // ab -> index is to get the first part, because you have multiple arrays now, and you want the first one
+    let beforeDot = email.split('@')[1].split('.')[0] // gmail
+    let afterDot = email.split('@')[1].split('.')[1] // com
+
+    if(!beforeAt || !beforeDot || !afterDot) return false
+
+    return (beforeAt.length >= 2) && (beforeDot.length >= 2) && (afterDot.length >= 2)
+}
+
+
+
+
 console.log(isEmailValid("")) // false
 console.log(isEmailValid("@gmail.com")) // false
 console.log(isEmailValid("johndoe@yahoo")) // false
@@ -595,8 +700,6 @@ isPasswordValid("Abcd1234$") 		-> true
 isPasswordValid("Chicago123$") 		-> true
 isPasswordValid("Test1234#") 		-> true
 */
-
-
 
 
 // some()
@@ -638,12 +741,51 @@ const isPasswordValid = str => {
         return upperCaseC && lowerCaseC && digit && special
 }
 
-console.log(isPasswordValid("")) // false OK
-console.log(isPasswordValid("abcd") ) // false OK
-console.log(isPasswordValid("abcd1234") ) // false  OK
-console.log(isPasswordValid("Abcd1234") ) // false OK
-console.log(isPasswordValid("Chicago12345US!#$%")) // false OK
-console.log(isPasswordValid("Abcd1234$")) // true OK 
-console.log(isPasswordValid("Chicago123$")) // true OK 
-console.log(isPasswordValid("Test1234#")) // true OK
+// BILAL -> suggested best opption
+
+const isPassValid = password =>{
+    if(password.length < 8 || password.length > 16) return false;
+    if (password.includes(' ')) return false;
+// at least 1 digit, 1 uppercase, 1 lowercase and 1 special char
+    let hasDigit = hasLowerCase = hasUpperCase = hasSpecial = false;
+
+    for(let char of password) {
+        if(char >= '0' && char <= '9') hasDigit = true
+        else if(char >= 'a' && char <= 'z') hasLowerCase = true
+        else if(char >= 'A' && char <= 'Z') hasLowerCase = true
+        else hasSpecial = true;
+    }
+
+    return hasDigit && hasLowerCase && upperCaseC && hasSpecial;
+}
+
+// BILAL -> option, not as good of a code, but works
+// use filter() to make it LOOK cleaner, but not as efficient
+
+const isPassValid = password => {
+    if(password.length < 8 || password.length > 16 || password.includes(' ')) return false
+
+    if(password.split('').filter(char => char >= '0' && char <= '9').length < 1) return false
+    if(password.split('').filter(char => char >= 'a' && char <= 'z').length < 1) return false
+    if(password.split('').filter(char => char >= 'A' && char <= 'Z').length < 1) return false
+
+    // here you're checking if char is Outside of the range of digits, or letters, meaning it has to be a special character
+    if(password.split('').filter(char => (char < '0' || char > '9') && (char < 'a' || char > 'z') && (char < 'A' || char > 'Z')).length < 1) return false
+    // or use ! to say its NOT any of the above
+    //if(password.split('').filter(char => !((char >= '0' && char <= '9') || (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z'))).length < 1) return false
+
+        return true
+}
+
+
+
+console.log(isPassValid("")) // false OK
+console.log(isPassValid("abcd") ) // false OK
+console.log(isPassValid("abcd1234") ) // false  OK
+console.log(isPassValid("Abcd1234") ) // false OK
+
+console.log(isPassValid("Chicago12345US!#$%")) // false OK
+console.log(isPassValid("Abcd1234$")) // true OK 
+console.log(isPassValid("Chicago123$")) // true OK 
+console.log(isPassValid("Test1234#")) // true OK
 
