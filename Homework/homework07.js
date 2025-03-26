@@ -148,13 +148,13 @@ const arrFactorial = arr => {
 }
 
 // recursion
-const arrFactorial = arr => {
+const arrFactorial1 = arr => {
     const factorial = num => num === 0 || num === 1 ? 1 : num * factorial(num - 1)
     return arr.map(factorial)
   }
 
   // one line
-  const arrFactorial = arr => arr.map(num => num === 0 || num === 1 ? 1 : num * arrFactorial([num - 1])[0] )
+  // const arrFactorial = arr => arr.map(num => num === 0 || num === 1 ? 1 : num * arrFactorial([num - 1])[0] )
 
 
 console.log(arrFactorial([1, 2, 3 ,4])) // [1, 2, 6, 24]
