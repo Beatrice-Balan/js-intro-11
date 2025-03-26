@@ -195,7 +195,8 @@ console.log(removeDuplicates(["1", "2", "3", "2", "3"])) // ["1", "2", "3"]
 
 
 console.log('\n--------TASK10--------\n')
-/* Write a method named date.isDateFormatValid() that takes a string as an argument and returns true if the given date is valid or returns false otherwise.
+/* Write a method named date.isDateFormatValid() that takes a string as an argument and returns true if the given date is valid 
+or returns false otherwise.
 
 Expected Format: nn/nn/nnnn
 So, it must be presented as <2digits>/<2digits>/<4digits>
@@ -223,7 +224,53 @@ console.log(DateCheck.isDateFormatValid("10.30.2020")) // false
 console.log(DateCheck.isDateFormatValid("5/30/2020")) // false
 console.log(DateCheck.isDateFormatValid("05/30/2020 ")) // true
 console.log(DateCheck.isDateFormatValid("10/2/2020")) // false
-console.log(DateCheck.isDateFormatValid("10/02/2020 ")) // true   
+console.log(DateCheck.isDateFormatValid("10/02/2020 ")) // 
+
+
+const isDateFormatValid = date => {
+    let dateAsArr = date.trim().split('/')
+    let month = dateAsArr[0]
+    let day = dateAsArr[1]
+    let year = dateAsArr[2]
+
+    if(month.length !== 2 || day.length !== 2 || year.length !== 4) return false
+    if(dateAsArr.length !== 3) return false
+
+    // verify month
+    if(Number(month) > 12 || Number(month) < 1) return false
+
+    // verify day
+    let isLeap = false
+    if(Number(year) % 4 === 0) {
+        if(Number(year) % 100 === 0) {
+            if(Number(year) % 400 === 0) isLeap = true
+        }
+       else isLeap = true
+    }
+
+    if(['01', '03', '05', '07', '08', '10', '12'].includes(month)) maxDays = 31
+    else if(['04', '06', '09', '11'].includes(month)) maxDays = 30
+    else if(isLeap) maxDays = 29
+    else maxDays = 28
+
+    if(Number(day) > maxDays || Number(day) < 1) return false
+
+    // verify year
+    if(Number(year) < 1) return false
+
+    return true
+}
+
+
+console.log(isDateFormatValid("")) // false
+console.log(isDateFormatValid("15/30/2020")) // false
+
+console.log(isDateFormatValid("10-30-2020 ")) // false
+console.log(isDateFormatValid("10.30.2020")) // false
+console.log(isDateFormatValid("5/30/2020")) // false
+console.log(isDateFormatValid("05/30/2020 ")) // true
+console.log(isDateFormatValid("10/2/2020")) // false
+console.log(isDateFormatValid("02/29/1700 ")) // false, 1700 was not a leap year   
 
 
 console.log('\n--------TASK11--------\n')
@@ -274,6 +321,39 @@ console.log(MathCheck.secondMin([3, 4, 5, 6])) // 4
 console.log(MathCheck.secondMin([10])) // 10
 
 
+// BILAL 
+
+const secondMin = arr => {
+    let min = Infinity
+    let secondMin = Infinity
+
+    for(let num of arr) {
+        if(num < min) {
+            secondMin = min
+            min = num
+        }
+        else if (num > min && num < secondMin) {
+        secondMin = num; // Update secondMin if num is greater than min but less than secondMin.
+        }
+    }
+    return secondMin === Infinity ? min : secondMin
+}
+
+
+// short version
+
+const secondMin = arr => {
+    return arr.sort((a, b) => a-b).filter(ele => ele !== Math.min(...arr))[0] || arr[0]
+}
+
+console.log(secondMin([7, 4, 4, 4, 23, 23, 23])) // 7
+console.log(secondMin([3, 4, 5, 6])) // 4
+console.log(secondMin([10])) // 10
+
+
+
+
+
 
 console.log('\n--------TASK13--------\n')
 /*Write a method named mostRepeated() takes an array argument and returns the most counted element from the array.
@@ -305,3 +385,58 @@ console.log(Check.mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]) ) // 4
 console.log(Check.mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])) // pen
 console.log(Check.mostRepeated([10])) // 10
 console.log(Check.mostRepeated(["TechGlobal"])) // TechGlobal
+
+
+// 1. BILAL - basic way to solve it (with one loop)
+
+const mostRepeated = arr => {
+    let count = {};
+    let mostRepeated;
+    let mostRepeatedCount = 0;
+
+    for(let ele of arr) {
+        if(count[ele] !== undefined) count[ele] += 1
+        else count [ele] = 1
+
+        if(count[ele] > mostRepeatedCount) {
+            mostRepeated = ele;
+            mostRepeatedCount = count[ele]
+        }
+    }
+
+    return mostRepeated
+}
+
+
+console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]) ) // 4
+
+
+
+// 2. another way with 2 loops, to make it easier to understand
+const mostRepeated = arr => {
+    let count = {};
+
+    for(let ele of arr) {
+        if(count[ele] !== undefined) count[ele] += 1
+        else count [ele] = 1
+    }
+
+// loop the current obj to find the one with the most repeated count
+    let mostRepeated;
+    let mostRepeatedCount = 0;
+
+    for (let ele in count) {
+        if(mostRepeatedCount < count[ele]) {
+            mostRepeated = ele;
+            mostRepeatedCount = count[ele]
+        }
+    }
+    return mostRepeated
+}
+
+console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]) ) // 4
+
+// 3. Interesting way, using sort
+
+const mostRepeated2 = arr => arr.sort((a, b) => arr.filter(ele => ele === a).length - arr.filter(ele => ele === b).length).pop()
+console.log(mostRepeated2([4, 7, 4, 4, 4, 23, 23, 23]) ) // 4

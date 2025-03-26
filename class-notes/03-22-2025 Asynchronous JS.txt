@@ -1,0 +1,162 @@
+JS is single threaded (Multitasking/ Multithreading is not possible)
+
+JS is Asynchronous 
+
+Handling Asynchronous Code: needs to be done frequently (almost all the time) when writing automated scripts
+because there will be test failures,as some steps will not wait for teh previous step to complete
+
+Asynchronous programming in JavaScript means executing tasks without blocking the main thread. 
+This is crucial for JavaScript, which is single-threaded, as it allows other tasks to run while 
+waiting for time-consuming operations to complete. 
+
+Instead of stopping everything to wait, asynchronous code schedules tasks to run later 
+and moves on to the next thing.
+
+EXAMPLE for TypeScript:
+
+test('Financing Page header', async ({ page })) => {
+    await page.goto('https://whatever.com/);
+    await page.getByRole('link', { name: 'Financing' }).click();
+    await expect(await page.locator('h2')).toBeVisible()
+}
+
+EXAMPLE CYPRESS (by default it waits/ awaits for 4 seconds)
+ // missing
+
+ How can we handle asynchronous code?
+ 1. callbacks (old not preferred)
+ 2. promises (es6)
+ 3. async-await (es8 - 2017)
+
+
+TEST CASE:
+
+Go to Carvana.com
+Click on Financing
+validate "FINANCING MADE EASY' headuing is visible
+
+                Promise STATES
+                    pending
+
+                IS THERE ERROR?
+        YES - ERROR                 NO error
+        rejected                    resolved
+
+
+
+resolve and reject are functions provided by the Promise constructor in JavaScript to indicate 
+the outcome of an asynchronous operation. 
+
+They allow you to control whether a promise is fulfilled (successful) or rejected (failed). 
+
+Here's a breakdown:
+
+resolve
+It is used to mark a promise as fulfilled.
+When called, it passes a value to the .then() method of the promise.
+This value represents the result of the successful operation.
+
+reject
+It is used to mark a promise as rejected.
+When called, it passes an error or reason to the .catch() method of the promise.
+This is typically used to indicate that the operation failed.
+
+
+
+Promises in JavaScript (MDN)
+A Promise is an object representing the eventual completion or failure of an asynchronous operation. 
+It is used to handle asynchronous operations in JavaScript, like data fetching or timers, 
+and provides a way to deal with operations that haven't completed yet, without blocking the program.
+
+Basic Structure of a Promise:
+A promise can be in one of three states:
+    Pending: The initial state, the operation hasn't completed yet.
+    Fulfilled: The operation completed successfully, and the promise has a resulting value.
+    Rejected: The operation failed, and the promise has a reason for the failure.
+
+
+Creating a Promise:
+    A promise is created using the Promise constructor. It takes a function (called the executor function) 
+    that gets passed two arguments: resolve and reject.
+
+- resolve(value): This is called when the asynchronous operation is successful, and it sends a value back.
+- reject(reason): This is called when the asynchronous operation fails, and it sends an error or reason back.
+
+EXAMPLE:
+let myPromise = new Promise((resolve, reject) => {
+  let success = true;
+  if (success) {
+    resolve("Operation was successful!");
+  } else {
+    reject("There was an error.");
+  }
+});
+
+Handling Promises with then(), catch(), and finally():
+    then(): Used to specify what should happen when a promise is fulfilled (resolved).
+    catch(): Used to specify what should happen if the promise is rejected.
+    finally(): Not commonly used. Used to specify what should happen once the promise has either been fulfilled or rejected, regardless of the outcome.
+
+myPromise
+  .then(result => console.log(result))  // If fulfilled
+  .catch(error => console.error(error))  // If rejected
+  .finally(() => console.log("Promise is settled"));
+
+  Chaining Promises:
+You can chain .then() calls to perform a sequence of asynchronous operations.
+Each .then() returns a new promise, allowing you to chain multiple actions together.
+
+Example: Fetching Data from an API:
+
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    let success = true;
+    if (success) {
+      resolve({ data: "Some fetched data" });
+    } else {
+      reject("Failed to fetch data");
+    }
+  });
+}
+
+fetchData("https://api.example.com")
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+In this example:
+
+resolve() is called when the data is fetched successfully.
+reject() is called if something goes wrong during the fetching process.
+
+
+Conclusion:
+Promises are a great way to handle asynchronous operations, providing a cleaner, more readable structure for 
+dealing with sequences of operations that may not finish immediately. 
+
+They allow you to manage asynchronous code more effectively, avoiding issues like callback hell, 
+and offering better error handling and flow control.
+
+
+
+Async Functions and Await in JavaScript (MDN)
+What is an async function?
+An async function is a function that is declared with the async keyword. 
+It automatically returns a Promise and allows the use of the await keyword inside it.
+
+The async keyword before a function makes it asynchronous, meaning the function will return a Promise 
+and can handle asynchronous operations inside.
+
+If the function returns a value, it is automatically wrapped in a resolved Promise.
+If the function throws an error, it is automatically wrapped in a rejected Promise.
+
+await is used inside async functions to pause the execution of the function and wait for the resolution of a Promise. 
+It can only be used inside an async function.
+
+When await is used, it waits for the Promise to be resolved and then returns the resolved value.
+If the Promise is rejected, the await expression throws an error.
+await pauses the execution of the async function until the Promise is resolved or rejected.
+
+you can handle errors in an async function using a try...catch block.
+
+try contains the code that may throw an error.
+catch handles any errors thrown by the awaited Promises.

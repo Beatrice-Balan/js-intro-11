@@ -21,6 +21,8 @@ const obj1 = {
 const obj2 = Object.create(obj1);
 obj2.newKey = 'newValue'
 
+
+
 If you want to create a bunch of objects use:
 
 1. Prototypes (Before ES6)

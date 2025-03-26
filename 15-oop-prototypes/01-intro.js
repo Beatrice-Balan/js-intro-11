@@ -7,8 +7,8 @@ OOP Languages: Java, C#, C++
 OOP languages will convert every real life object into programming
 
 
-JavaScript (JS) is a versatile programming language that supports multiple programming paradigms, 
-including Object-Oriented Programming (OOP). OOP is a paradigm that organizes code into objects that have both properties (data) and methods (functions).
+JavaScript (JS) is a versatile programming language that supports multiple programming paradigms, including Object-Oriented Programming (OOP). 
+OOP is a paradigm that organizes code into objects that have both properties (data) and methods (functions).
 
 In JavaScript, you can implement OOP using objects and classes. 
 */

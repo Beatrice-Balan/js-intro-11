@@ -1,0 +1,69 @@
+JavaScript modules are files containing reusable code that can be imported and exported 
+across your application. 
+They help organize and encapsulate code to improve maintainability and scalability.
+
+Creating small, reusable, and easy-to-maintain components (like functions, objects, or classes)
+ that can be exported and reused anywhere in your project by importing them
+
+Additionally, we can install ready-made packages using NPM, which are stored in the 
+node_modules folder. These can also be imported and used anywhere in the project
+
+There are 2 ways to create JS Modules:
+1. Common JS: mostly used with NodeJS
+2. ES6 Modules: mostly used with browsers
+
+
+
+JavaScript modules allow you to split your code into smaller, reusable pieces, making it easier to manage and maintain. With modules, you can export functions, objects, or variables from one file and import them into another. This helps in organizing your code, especially in large applications.
+
+Types of JavaScript Modules:
+ES Modules (ESM):
+
+Syntax:
+
+Exporting: export is used to export code from a module.
+
+// myModule.js
+export const myVar = 'Hello';
+export function greet() {
+  console.log('Hi!');
+}
+Importing: You can import code from a module using import.
+
+
+// app.js
+import { myVar, greet } from './myModule.js';
+console.log(myVar); // Outputs: Hello
+greet(); // Outputs: Hi!
+File Extension: .mjs or .js (with "type": "module" in package.json).
+
+CommonJS Modules:
+
+CommonJS is used in Node.js and is the older module system.
+
+Syntax:
+
+Exporting: Use module.exports to export code.
+
+// myModule.js
+module.exports.myVar = 'Hello';
+module.exports.greet = function() {
+  console.log('Hi!');
+};
+Importing: Use require() to import.
+
+// app.js
+const myModule = require('./myModule.js');
+console.log(myModule.myVar); // Outputs: Hello
+myModule.greet(); // Outputs: Hi!
+
+Key Differences Between ESM and CommonJS:
+ES Modules are more modern, with import and export syntax, and are used in browsers 
+as well as in Node.js (with the appropriate settings).
+
+CommonJS is primarily used in Node.js, using require() to load modules 
+and module.exports to export them.
+
+In recent years, ESM has become the standard due to its support for static analysis 
+and tree shaking (removing unused code from bundles), making it more efficient for 
+front-end development.

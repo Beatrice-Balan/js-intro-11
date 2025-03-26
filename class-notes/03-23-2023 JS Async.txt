@@ -1,0 +1,29 @@
+JS Asynchronous
+
+AJAX: is a web development tecqnique that enables web pages to update content dynamically without 
+requiring a full page reload
+
+TEST CASE:
+Go to: https://www.amazon.com/ (0.5 seconds)
+Click on location header item (0.2 seconds)
+Validate the "Choose your location" dialog is visible (0.3 seconds)
+
+3 ways to ahndle asynchronous operations/ code
+
+1. callbacks
+2. promises
+3. async-await
+
+JS Modules
+
+ES6 Modules (export, import)
+CommonJS (module.exports, require)
+
+We will going to download and install libraries - more methods and objects
+
+NodeJS - uis also a programming language btw
+
+NPM: Node Package Manager
+    - we can install, update or uninstall some external packages(= libraries) using NPM
+    npm install cypress
+    npm install faker
