@@ -24,7 +24,7 @@ print working directory: where you are or which path you're on
 2. ls (mac) vs dir (windows)
 Lists the existing folders/ files in the current path/ directory
 
-List all items including hidden:
+Lis  
 ls -a
 dir -ah
 

@@ -60,3 +60,4 @@ const cities = ['Chicago', 'Berlin', 'Rome']
 
 let some6 = cities.some((x) => x.length === 6)
 console.log(some6); // true
+

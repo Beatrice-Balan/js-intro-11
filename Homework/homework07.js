@@ -114,10 +114,33 @@ function sumOfDigits(str) {
     return sum
   }
 
+  const sumOfDigits = str => str.split('').filter(char => char >= '0' && char <= '9').reduce((sum, digit) => sum + Number(digit), 0);
+
 console.log(sumOfDigits("Javascript")) // 0
 console.log(sumOfDigits("John’s age is 29")) // 11
 console.log(sumOfDigits("$125.0")) // 8
 console.log(sumOfDigits("")) // 0
+
+
+const sumOfDigits = str => str.split('').filter(char => char >= '0' && char <= '9').reduce((sum, digit) => sum + Number(digit), 0);
+
+// HANDLE negative numbers:
+
+const sumOfDigits = str => {
+    let sum = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === '-') {
+        // If there's a negative sign, the next character should be a digit
+        if (i + 1 < str.length && str[i + 1] >= '0' && str[i + 1] <= '9') {
+          sum += (-Number(str[i + 1])); // Add negative value
+          i++; // Skip the next digit since it's already processed
+        }
+      } else if (str[i] >= '0' && str[i] <= '9') {
+        sum += Number(str[i]); // Add positive digit
+      }
+    }
+    return sum;
+  }
 
 
 
@@ -163,6 +186,15 @@ console.log(arrFactorial([5 , 0, 6])) // [120, 1, 720]
 console.log(arrFactorial([])) //  []
 
 
+// factorial(0) = 1
+// factorial(1) = 1
+// factorial(2) =  2 * factorial(2 - 1) -> 2 * 1 = 2
+// factorial(3) =  3 * factorial(3 - 1) -> 3 * 2 = 6
+// factorial(3) =  4 * factorial(4 - 1) -> 4 * 6 = 24
+
+// one more way to solve it
+const arrFactor = arr => arr.map((ele) => [...Array(ele).keys()].reduce((prod, val) => prod * (val + 1), 1))
+
 
 console.log('\n--------TASK08--------\n')
 /*
@@ -190,3 +222,19 @@ const categorizeCharacters = str => {
 console.log(categorizeCharacters("1234"))
 console.log(categorizeCharacters("abc123$#%"))
 console.log(categorizeCharacters("12ab$%3c%"))
+
+// BILAL:
+
+const categorizeCharacters1 = str => {
+    return str.split('').reduce((result, ele) => {
+      if (ele.toLowerCase() >= 'a' && ele.toLowerCase() <= 'z') result[0] += ele
+      else if (ele >= '0' && ele <= '9') result[1] += ele; // Append to digits
+      else if (ele !== ' ') result[2] += ele; // Append to specials
+    
+      return result; // Return the accumulator
+    }, ['', '', '']); // Initial value for reduce
+  };
+
+console.log(categorizeCharacters1("1234")) // [ '', '1234', '' ]
+console.log(categorizeCharacters1("abc123$#%")) // [ 'abc', '123', '$#%' ]
+console.log(categorizeCharacters1("12ab$%3c%")) // [ 'abc', '123', '$%%' ]

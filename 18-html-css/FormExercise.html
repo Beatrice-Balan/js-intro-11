@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+   table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgb(236, 186, 109);
+        }
+
+    label {
+            font-size:larger;
+            font-weight:bold;
+    }
+
+        th, td {
+            border: 1px solid black;
+        }
+
+        #email {
+            width: 95%;
+        }
+
+#saveButton {
+        background-color: blue;
+        color: white;
+        font-weight:bold;
+        margin: 5px;
+        border-radius: 10px;
+        width: 80px;
+        }
+
+        #cancelButton {
+        background-color: white;
+        color: black;
+        border-color: blue;
+        font-weight:bold;
+        margin: 5px;
+        border-radius: 10px;
+        width: 80px;
+        }
+
+        #resizeButton {
+        background-color: rgb(175, 173, 173);
+        color: black;
+        font-weight:bold;
+        margin: 5px;
+        border-radius: 10px;
+        width: 80px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" id="name" placeholder="Type your name here"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                </td>
+                <td>
+                    <input type="email" id="email"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                </td>
+                <td>
+                    <input type="password" id="password"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Approval Required</h3>
+                    <h6>Click on the button or text to check/uncheck</h6>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="approval"/>
+                    <label for="approval">Do you approve?</label>
+
+                </td>
+            </tr>
+
+        <tr>
+                <td>
+                    <h3>Pick Your Favorite</h3>
+                    <h6>Click on the button or text to select</h6>
+                </td>
+                
+            <td>
+                <div>
+                    <input type="radio" name="choice" id="choiceA"/>
+                    <label>Choice A</label>
+                </div>
+                    
+                <div>
+                    <input type="radio" name="choice" id="choiceB" checked/>
+                    <label>Choice B</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="choice" id="choiceC"/>
+                    <label>Choice C</label>
+                </div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+            <div>
+                <h3>Popup Menu:</h3>
+            </td>
+
+        <td>
+                <select>
+                    <option value="tx">Texas -- TX</option>
+                    <option value="il">Illinois -- IL</option>
+                    <option value="fl">Florida -- FL</option>
+                </select>
+            </div>
+        </td>
+        </tr>
+
+        <tr>
+            <td>
+            <div>
+                <h3>List</h3>
+            </td>
+
+        <td>
+                <select multiple>
+                    <option value="ca">California -- CA</option>
+                    <option value="co">Colorado -- CO</option>
+                    <option value="cn">Connecticut -- CT</option>
+                    <option value="da">Dalifornia -- DA</option>
+                    <option value="do">Dolorado -- DO</option>
+                </select>
+            </div>
+        </td>
+        </tr>
+
+
+    <tr>
+        <td>
+            <h3>Field ignored by KM</h3>
+        </td>
+
+        <td>
+            <label for="ignored"></label>
+            <input type="text" id="ignored" placeholder="10,384"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h3>Text Area</h3>
+        </td>
+
+        <td>
+                <textarea rows="5">Now is the time.....</textarea>
+        </td>
+    </tr>
+
+        </tbody>
+    </table>
+    
+    <button type="button" id="saveButton">Save</button>
+    <button type="button" id="cancelButton">Cancel</button>
+    <button type="button" id="resizeButton">Resize</button>
+
+
+</body>
+</html>

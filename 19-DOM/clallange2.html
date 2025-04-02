@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Student name</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+                <!-- render student names here-->
+        </tbody>
+
+    </table>
+
+    <script>
+
+// Create an array of something
+const students = ['A', 'B', 'C', 'D'];
+
+// Inside the htmL you will have a table element
+const table = document.getElementById("table")
+const tableBody = table.getElementsByTagName('tbody')[0]
+
+// Dynamically append new row with array data
+
+    students.forEach(student => {
+            tableBody.innerHTML += `<tr><td>${student}</td></tr>`;
+        })
+    
+    </script>
+
+</body>
+</html>
