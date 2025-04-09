@@ -32,13 +32,11 @@ console.log(noZero([10, 100, 0])) // [ 10, 100 ]
 
 
 console.log('\n--------TASK03--------\n')
-/* Write a function named numberAndSquare() which takes an array of numbers as argument and returns a multidimensional array 
-with all numbers squared. 
+/* Write a function named numberAndSquare() which takes an array of numbers as argument and returns a 
+multidimensional array with all numbers squared. 
 */
 
-const numberAndSquare = arr => {
-    return arr.map(num => [num, num * num])
-}
+const numberAndSquare = arr => arr.map(num => [num, num * num])
 
 console.log(numberAndSquare([1, 2, 3])) // [[1, 1], [2, 4], [3, 9]]
 console.log(numberAndSquare([0, 3, -6])) // [[0, 0], [3, 9], [-6, 36]]
@@ -90,7 +88,7 @@ string without the special characters or digits.
 */
 
 const removeStringSpecialsDigits = str => 
-    str.split('').filter(char => (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char === ' ').join('');
+    str.split('').filter(char => (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') || char === ' ').join('');
 
 // const removeStringSpecialsDigits = str => str.replace(/[^a-zA-Z ]/g, '')
 
@@ -114,10 +112,12 @@ console.log(removeArraySpecialsDigits(["Cypress", "123$%", "###"])) // ["Cypress
 console.log(removeArraySpecialsDigits(["Automation", "123#$%tool"])) // ["Automation", "tool"]
 
 
+
+
 console.log('\n--------TASK08--------\n')
 // Write a function named getCommons() which takes two string arrays as arguments and returns all the common words.
 
-const getCommons = (arr1, arr2) => {
+const getCommons1 = (arr1, arr2) => {
     let commonsArr = []
     
     arr1.forEach(str => {
@@ -128,6 +128,25 @@ const getCommons = (arr1, arr2) => {
     return commonsArr
 }
 
+// BILAL
+
+const getCommons = (arr1, arr2) => {
+    let result = []
+
+    for(let ele of arr1) {
+        if (arr2.includes(ele) && !result.includes(ele)) {
+            result.push(ele)
+        }
+    }
+    return result
+}
+
+// one more option
+const getCommons = (arr1, arr2) => {
+    return arr1.reduce((result, ele) => 
+       arr2.includes(ele) && !result.includes(ele) ? result.concat(ele) : result, []
+    );
+ };
 
 console.log(getCommons( ["Javascript", "is", "fun"], ["abc", "xyz", "123"] )) // []
 console.log(getCommons( ["Javascript", "is", "fun"], ["Javascript", "C#", "Python"] )) // ["Javascript"]
@@ -141,7 +160,7 @@ removed from the elements. 
 NOTE: If the element is existing of x or X letters only, then completely remove the element.
 */
 
-const noXInVariables = arr => {
+const noXInVariables1 = arr => {
     let mappedArr = arr.map(ele => {
         let filteredChars = String(ele).split('').filter(char => char !== 'x' && char !== 'X')
         let newEle = filteredChars.join('')
@@ -150,6 +169,13 @@ const noXInVariables = arr => {
 
     return mappedArr.filter(ele => ele !== '')
 }
+
+// BILAL:
+
+const noXInVariables = arr => {
+    return arr.map(ele => typeof ele === 'string' ? ele.split('').filter(ele => ele.toLowerCase() !== 'x').join('') : ele)
+}
+
 
 console.log(noXInVariables(["abc", 123, "#$%"])) // ["abc", 123, "#$%"]
 console.log(noXInVariables(["xyz", 123, "#$%"])) // ["yz", 123, "#$%"]

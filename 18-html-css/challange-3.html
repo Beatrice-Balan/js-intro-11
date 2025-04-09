@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .card {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        .highlight {
+            background: #f0f8ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>User Profiles</h1>
+    <div id="card-container"></div>
+
+    <script>
+        const users = [
+            { name: 'Alice', age: 25, hobby: 'Drawing' },
+            { name: 'Bob', age: 30, hobby: 'Soccer' },
+            { name: 'Charlie', age: 22, hobby: 'Gaming' },
+            { name: 'Dana', age: 28, hobby: 'Photography' }
+        ];
+       // Your code goes here ...
+       // 1. create 3 elements (name, age hobby)
+       // 2. append card element
+       // 3. append card element to body
+       // 4. create random number and based on it highlight the card. Check style above
+
+
+
+       const cardContainer = document.getElementById('card-container')
+     
+       users.forEach(user => {
+    // 1. Create a card element
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    // 2. Create and append the name, age, and hobby elements
+    const nameEl = document.createElement('p');
+    nameEl.textContent = `Name: ${user.name}`;
+    
+    const ageEl = document.createElement('p');
+    ageEl.textContent = `Age: ${user.age}`;
+    
+    const hobbyEl = document.createElement('p');
+    hobbyEl.textContent = `Hobby: ${user.hobby}`;
+
+    card.appendChild(nameEl);
+    card.appendChild(ageEl);
+    card.appendChild(hobbyEl);
+
+    // 3. Randomly decide to highlight the card or not
+    const randomNumber = Math.random();
+    if (randomNumber > 0.5) {  // 50% chance to highlight
+        card.classList.add('highlight');
+    }
+
+    // 4. Append the card to the card container
+    cardContainer.appendChild(card);
+});
+
+
+    </script>
+</body>
+
+</html>
