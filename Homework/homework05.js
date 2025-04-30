@@ -334,7 +334,7 @@ const removeExtraSpaces = str => {
 }
 
 // regex
-const removeExtraSpaces = str => str.trim().replace(/\s+/g, ' ');
+// const removeExtraSpaces = str => str.trim().replace(/\s+/g, ' ');
 
 console.log(removeExtraSpaces("Hello"))
 console.log(removeExtraSpaces("      Hello    World     "))

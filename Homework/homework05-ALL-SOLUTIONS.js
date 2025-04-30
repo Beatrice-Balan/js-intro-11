@@ -393,13 +393,17 @@ isPrime(1)		-> false
 */
 
 const isPrime = num => {
-    if (num <= 1) return false;
+    if(num < 2) return false
+    if(num === 2 || num === 3) return true
+    if(num % 2 === 0 || num % 3 === 0) return false
 
-    for(i = 2; i < num; i++) {
-        if (num % i === 0) return false
+    for(i = 5; i < num; i+=2) {
+        if(num % i === 0) return false
     }
     return true
 }
+
+
 
 console.log(isPrime(5)) // true
 console.log(isPrime(2)) // true
@@ -414,7 +418,7 @@ console.log(isPrime(3)) // true
 // LEARN THIS ONE
 
 
-const isPrime = num => {
+const isPrime1 = num => {
     if (num < 2) return false;
     if (num === 2 || num === 3) return true;
     if (num % 2 === 0 || num % 3 === 0) return false; // if num is not 2, and is even, then it can't be a prime number

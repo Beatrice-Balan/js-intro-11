@@ -129,7 +129,8 @@ console.log(findBiggestNumber("3 for 10 dollars")) // 10
 
 
 console.log('\n--------TASK05--------\n')
-/*Write a function named countOccurrencesOfCharacters() which takes a string argument and returns the count of repeated characters in the String.​
+/*Write a function named countOccurrencesOfCharacters() which takes a string argument and returns 
+the count of repeated characters in the String.​
 NOTE: If given String is empty, then return empty String.​
 NOTE: It is case sensitive.
 */
@@ -155,18 +156,44 @@ const countOccurrencesOfCharacters = str => {
 return finalResult
 }
 
-
-
 console.log(countOccurrencesOfCharacters("")) // ""
 console.log(countOccurrencesOfCharacters("abc")) // "1a1b1c"
-console.log(countOccurrencesOfCharacters("abbcca")) // "1a2b2c1a"
-console.log(countOccurrencesOfCharacters("aaAAa")) // "2a2A1a”
+console.log(countOccurrencesOfCharacters("abbcca")) // "2a2b2c"
+console.log(countOccurrencesOfCharacters("aaAAa")) // "3a2A”
 console.log(countOccurrencesOfCharacters("www" )) // "3w"
+
+
+// HOW TO ACTUALLY SOLVE THIS TO GET THE CORRECT RESULT
+const countOccurrencesOfCharacters1 = str => {
+    if(str === '') return ""
+
+    let result = ''
+    let currentChar = str[0]
+    let currentCharCount = 1
+
+    for(let i = 1; i < str.length; i++) {
+        if(str[i] === currentChar) currentCharCount += 1
+        else {
+            result += currentCharCount + currentChar
+            currentChar = str[i]
+            currentCharCount = 1
+        }
+    }
+    result += currentCharCount + currentChar
+    return result
+}
+
+console.log(countOccurrencesOfCharacters1("")) // ""
+console.log(countOccurrencesOfCharacters1("abc")) // "1a1b1c"
+console.log(countOccurrencesOfCharacters1("abbcca")) // "1a2b2c1a"
+console.log(countOccurrencesOfCharacters1("aaAAa")) // "2a2A1a”
+console.log(countOccurrencesOfCharacters1("www" )) // "3w"
 
 
 
 console.log('\n--------TASK06--------\n')
-/*Write a function named fibonacciSeries1() which takes a number n argument and returns the n series of Fibonacci numbers as an array. ​
+/*Write a function named fibonacciSeries1() which takes a number n argument 
+and returns the n series of Fibonacci numbers as an array. ​
 REMEMBER: Fibonacci series = 0, 1, 1, 2, 3, 5, 8, 13, 21
 */
 
@@ -181,7 +208,7 @@ const fibonacciSeries1 = n => {
     return fibArr
 }
 
-/*
+/* 
 const fibonacciSeries1 = n => {
     if(n === 1) return [0]
     if(n === 2) return [0, 1]
@@ -222,6 +249,28 @@ const fibonacciSeries2 = n => {
     return prevNum
 }
 
+// BILAL - THIS IS HOW YOU SOLVE IT THE EASY WAY
+const fibonacciSeries2 = n => {
+    if(n === 1) return [0]
+
+    let fibArr = [0, 1]
+
+    for(let i = 2; i < n; i++) {
+       fibArr.push(fibArr[i - 2] + fibArr[i - 1])
+    }
+    return fibArr[fibArr.length - 1]
+}
+
+
+// BILAL RECURSION
+
+const fibonacciSeries2 = n => {
+    if(n === 1) return 0
+    if(n === 2 || n === 3) return 1
+
+    return fibonacciSeries2(n-1) + fibonacciSeries2(n-2)
+}
+
 console.log(fibonacciSeries2(2)) // 1
 console.log(fibonacciSeries2(4)) // 2
 console.log(fibonacciSeries2(8)) // 13
@@ -253,6 +302,20 @@ const findUniques = (arr1, arr2) => {
 }
 
 
+// BILAL combined Arr
+
+const findUniques1 = (arr1, arr2) => {
+    let uniques = []
+    let combinedArr = arr1.concat(arr2)
+
+    for(let num of combinedArr) {
+        if((!(arr1.includes(num) && arr2.includes(num)) && !uniques.includes(num))) uniques.push(num)
+    }
+
+    return uniques
+}
+
+
 console.log(findUniques([], [])) // []
 console.log(findUniques([], [1, 2, 3, 2])) // [1, 2, 3]
 console.log(findUniques([1, 2, 3, 4], [3, 4, 5, 5])) // [1, 2, 5]
@@ -262,7 +325,8 @@ console.log(findUniques([-1, -2], [1, 2])) //  [-1, -2, 1, 2]
 
 
 console.log('\n--------TASK09--------\n')
-/*Write a function named isPowerOf3() which takes a number argument and returns true if given number is equal to 3 power of the X. Otherwise, return false.​
+/*Write a function named isPowerOf3() which takes a number argument and returns true if 
+given number is equal to 3 power of the X. Otherwise, return false.​
 NOTE: Numbers that are power of 3 = 1, 3, 9, 27, 81, 243….
 NOTE: Ignore negative scenarios.
 Examples:
@@ -282,6 +346,20 @@ const isPowerOf3 = num => {
     return false
 }
 
+// while loop - BILAL solution
+
+const isPowerOf3 = n => {
+    let powerOf3 = 1
+
+    while (powerOf3 <= n) {
+        if(powerOf3 === n) return true
+        powerOf3 *= 3
+    }
+    return false
+}
+
+// RECURSION
+const  isPowerOf3 = (num) => num === 1 ? true : num < 1 ? false : isPowerOf3(num/3)
 
 console.log(isPowerOf3(1)) // true
 console.log(isPowerOf3(2)) // false
