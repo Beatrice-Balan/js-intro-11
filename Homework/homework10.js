@@ -59,7 +59,7 @@ calculateTotalPrice2({ Apple: 0, Pineapple: 0, Orange: 0 }) 		-> 0
 calculateTotalPrice1({ Apple: 4, Pineapple: 1, Orange: 1, Mango:3 }) 	-> 29.51
 */
 
-const calculateTotalPrice2 = obj => {
+const calculateTotalPrice22 = obj => {
     const inventory = {
         Apple: 2.00,
         Orange: 3.29,
@@ -100,6 +100,36 @@ const calculateTotalPrice2 = obj => {
     return totalPrice.toFixed(2)
 }
 
+// better
+
+const calculateTotalPrice2 = items => {
+    const prices = {
+        Apple: 2.00,
+        Orange: 3.29,
+        Mango: 4.99,
+        Pineapple: 5.25
+    };
+
+    let total = 0;
+  
+    for(let item in items){
+  
+        const noSale = items[item] * prices[item]
+        let sale = 0;
+  
+        if(item === 'Apple') sale = (Math.floor(items[item] / 2) * prices[item]) / 2
+        else if(item === 'Mango') sale = (Math.floor(items[item] / 4) * prices[item])
+            
+        total += noSale - sale;
+        
+    }
+    return total === 0 ? total : total.toFixed(2)
+  }
+
+
+  
+
+
 console.log(calculateTotalPrice2({ Apple: 3, Mango: 5 })) // 24.96
 console.log(calculateTotalPrice2({ Apple: 4, Mango: 8, Orange: 3 })) // 45.81
 console.log(calculateTotalPrice2({ Apple: 0, Pineapple: 0, Orange: 0 })) // 0
@@ -119,10 +149,14 @@ nthWord("Javascript", 1) 			-> "Javascript”
 nthWord("", 1) 			-> ""
 */
 
-const nthWord = (str, num) => {
+const nthWord1 = (str, num) => {
     const words = str.split(' ')
     return words.length < num ? '' : words[num - 1]
 }
+
+// better
+const nthWord = (str, num) =>  str.split(' ')[num-1] || ""
+
 
 console.log(nthWord("I like programming languages", 2)) // like
 console.log(nthWord("QA stands for Quality Assurance", 4)) // Quality
@@ -174,6 +208,8 @@ const isArmstrong = num => {
     return num === sum
 }
 
+// one line
+// const isArmstrong = num => num.toFixed().split('').reduce((total, i) => total + Math.pow(i,num.toFixed().length), 0) === num
 
 console.log(isArmstrong(153)) // true
 console.log(isArmstrong(123)) // false
@@ -195,17 +231,30 @@ reverseNumber(0) 	-> 0
 reverseNumber(111) 	-> 111
 */
 
-const reverseNumber = num => {
-    let reversedNum = 0
+const reverseNumber1 = num => {//123
+    let reversedNum = 0 // 3
+                        // 32
 
     while (num > 0) {
-        let lastDigit = num % 10
-        reversedNum = reversedNum * 10 + lastDigit
+        let lastDigit = num % 10 // 3 // 2 // 1
+        reversedNum = reversedNum * 10 + lastDigit // 0 * 10 + 3 
+                                                    // 3 * 10 + 2 = 32
+                                                    // 32 * 10 + 1 = 321
 
-        num = Math.floor(num / 10)
+        num = Math.floor(num / 10) // 123 / 10 = 12.3 => floored is 12 
+                                    // 12 / 10 = 1.2 => foored 1
     }
 
     return reversedNum
+}
+
+// better
+const reverseNumber = num => {
+    let reversed = 0;
+    for(let i = num; i > 0;  i = Math.floor(i / 10)){
+        reversed = (reversed * 10) + (i % 10);
+    }
+    return reversed;
 }
 
 console.log(reverseNumber(371)) // 173
@@ -229,7 +278,8 @@ doubleOrTriple([0], false) 	-> [0]
 doubleOrTriple([-1, 0, 1], true) 	-> [-2, 0, 2]
 */
 
-const doubleOrTriple = (arr, bool) => arr.map(num => bool ? num * 2 : num * 3)
+const doubleOrTriple1 = (arr, bool) => arr.map(num => bool ? num * 2 : num * 3)
+const doubleOrTriple = (arr, isDouble) => isDouble ? arr.map((el) => el * 2) : arr.map((el) => el * 3)
 
 console.log(doubleOrTriple([1, 5, 10], true)) // [ 2, 10, 20 ]
 console.log(doubleOrTriple([3, 7, 2], false)) // [ 9, 21, 6 ]
@@ -254,8 +304,7 @@ splitString("12", 1) 		-> "1 2"
 */
 
 const splitString = (str, num) => {
-    if(num > str.length) return ''
-    if(str.length % num !== 0) return ''
+    if(num > str.length || str.length % num !== 0) return ''
 
     let splitString = ''
 
@@ -263,10 +312,29 @@ const splitString = (str, num) => {
         splitString += str.slice(i, (i + num)) + ' '
      }
 
-     return splitString
+     return splitString.trim()
 }
 
+// this only works for 2 splits
+//const splitString1 = (str, num) => (str.length % num !== 0 || num > str.length) ? '' : str.slice(0, num) + ' ' + str.slice(num)
+
+
+const splitString = (str, num) => {
+    if(num > str.length || str.length % num !== 0) return ''
+
+    let result = ''
+
+     while(str.length > 0) {
+        result += str.slice(0, num) + ' '
+        str = str.slice(num)
+     }
+
+     return splitString.trim()
+}
+
+
 console.log(splitString("JavaScript", 5)) // JavaS cript
+console.log(splitString("JavaScript", 2)) // JavaS cript
 console.log(splitString("Java", 2)) // Ja va
 console.log(splitString("Automation", 3)) // ""
 console.log(splitString("Automation", 2)) // Au to ma ti on
