@@ -11,11 +11,11 @@ countPalindrome("No palindrome here") 		-> 0
 */
 
 const countPalindrome = str => {
-    let words = str.trim().split(' ')
+    let words = str.trim().split(' ').filter(word => word !== '')
     let count = 0
-
-    for(let word of words) {
-        if(word.toLowerCase() === word.toLowerCase().split('').reverse().join('')) count++
+    for (let word of words) {
+        if (word.toLowerCase() === word.toLowerCase().split('').reverse().join(''))
+            count++
     }
     return count
 }
@@ -132,7 +132,6 @@ const canFormString = (str1, str2) => {
 
             return true
         }
-
         return false
     })
 }
@@ -210,7 +209,6 @@ const count1 = (arr, bool) => {
 //filter
 const count = (arr, bool) => arr.filter(num => bool ? num % 2 === 0 : num % 2 !== 0).length
 
-
 console.log(count([1, 5, 10], true)) // 1
 console.log(count([3, 7, 2, 5, 10], false)) // 3
 console.log(count([-1, 1, -2, 2], true)) // 2
@@ -234,7 +232,6 @@ sumDigitsDouble("n0numh3r3") 	-> 12
 */
 
 const sumDigitsDouble = str => {
-
     let sum = 0
 
     for(let char of str) {
@@ -267,27 +264,20 @@ countOccurrence("IT conversations", "IT")​ 	-> 2
 const countOccurrence = (str1, str2) => {
     let arr1 = str1.toLowerCase().replace(/\s+/g, '').split('')
     let arr2 = str2.toLowerCase().replace(/\s+/g, '').split('')
+    
+    let count = 0
 
-    let count = 0 
-
-    return arr2.every(char => {
-        if(arr1.indexOf(char) !== -1) {
+    while (arr2.every(char => arr1.includes(char)) ) {
+        for (let char of arr2) {
             arr1.splice(arr1.indexOf(char), 1)
-
-            
         }
-
-        return count
-    })
-
-
+        count++
+    }
+    return count
 }
-
 
 console.log(countOccurrence("Javascript", "Java")) // 1
 console.log(countOccurrence("Hello", "World")) // 0
 console.log(countOccurrence("Can I can a can", "anc")) // 3
 console.log(countOccurrence("Hello", "l")) // 2
 console.log(countOccurrence("IT conversations", "IT")) // 2
-
-

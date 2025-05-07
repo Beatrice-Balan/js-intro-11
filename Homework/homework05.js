@@ -174,11 +174,35 @@ isPalindrome("A") 		-> true
 isPalindrome("") 		-> true
 */
 
-const isPalindrome = word => {
+const isPalindrome1 = word => {
     let wordLowC = word.toLowerCase()
     let reversedWord = wordLowC.split('').reverse().join('')
     return wordLowC === reversedWord
 }
+
+const isPalindrome = (str) => str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+
+//Second way:
+    // str = str.toLowerCase()
+    // let start = 0;
+    // let end = str.length - 1
+
+    // while(start < end){
+    //     if(str[start] !== str[end]) return false
+
+    //     start++;
+    //     end--;
+    // }
+    // return true
+
+// Third way:
+    // for(let i = 0; i < str.length; i++){
+    //     if(str[i] !== str[end]) return false
+    //     end--;
+
+    //     if(i >= end) return true;
+    // }
+    // return true
 
 console.log(isPalindrome('Hello')) // false
 console.log(isPalindrome('Kayak')) // true
