@@ -237,7 +237,6 @@ const sumDigitsDouble = str => {
     for(let char of str) {
         if(char >= '0' && char <= '9') sum += Number(char) * 2
     }
-
    return sum === 0 ? -1 : sum
 }
 
