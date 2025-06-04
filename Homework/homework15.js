@@ -1,3 +1,4 @@
+console.log('\n--------TASK01--------\n')
 /* TASK 1
 Write a function named toCamelCase() which takes a string as its argument and returns a new string in camelCase. 
 Assume the string only contains letters and spaces
@@ -26,6 +27,7 @@ console.log(toCamelCase("I Learn Java Script")) // iLearnJavaScript
 console.log(toCamelCase("helloWorld")) // helloWorld
 
 
+console.log('\n--------TASK02--------\n')
 /* TASK 2
 Write a function named toSnakeCase() which takes a string as its argument and returns a new string in snake_case. 
 Assume the string only contains letters and spaces
@@ -47,6 +49,7 @@ console.log(toSnakeCase("already_snake_case"))
 console.log(toSnakeCase("hello"))
 
 
+console.log('\n--------TASK03--------\n')
 /* TASK 3
 Write a function named alternatingCases() which takes a string argument and returns the string with 
 alternating capitalization.
@@ -70,6 +73,7 @@ console.log(alternatingCases("")) // ''
 console.log(alternatingCases("123!@#aB")) // "123!@#Ab"
 
 
+console.log('\n--------TASK04--------\n')
 /* TASK 4
 Write a function named isNeutral() that takes two strings comprised of + and -, and return a new string which 
 shows how the two strings interact in the following way:
@@ -97,6 +101,8 @@ console.log(isNeutral("-++-", "-+-+")) // "-+00"
 console.log(isNeutral("--++--", "++--++")) // "000000"
 console.log(isNeutral("+++", "+++")) // "+++"
 
+
+console.log('\n--------TASK05--------\n')
 /* TASK 5
 Write a function named isTrueOrFalse() which takes a string with sets of character/words separated by space.
 
