@@ -125,7 +125,7 @@ isTrueOrFalse("Got stuck in the Traffic") 		-> false
 const isTrueOrFalse = str => {
     let words = str.toLowerCase().trim().split(' ')
     let posCharCount = 0
-    let negCharCount = 0
+    let negCharCount = 0  
 
     for(let word of words) {
         let firstChar = word[0]
