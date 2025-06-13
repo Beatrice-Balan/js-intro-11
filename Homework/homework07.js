@@ -171,7 +171,7 @@ const arrFactorial = arr => {
 }
 
 // recursion
-const arrFactorial1 = arr => {
+const arrFactorial = arr => {
     const factorial = num => num === 0 || num === 1 ? 1 : num * factorial(num - 1)
     return arr.map(factorial)
   }
